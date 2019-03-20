@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.3" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <license>Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt</license>  
+  <vendor>Infineon</vendor>
+  <url>http://dave.infineon.com/Libraries/CMSIS_PACK/</url>
+  <name>TLE985x_DFP</name>
+  <description>Infineon TLE985x Series Device Support</description>
+  <supportContact>http://www.infineon.com/support</supportContact>
+  
+  <releases>
+    <release version="1.1.0">
+      SDK Unit tested
+	  MISRA 2012 compliant
+	  ARMCC v6 support
+    </release>
+    <release version="1.0.2">
+      XML update
+	  ADC1 update
+    </release>
+    <release version="1.0.1">
+      TLE985x Device Family Pack.
+      BDRV Motor Control Example added.
+      Flash Programing Examples added.
+      Improved GUI for Config Wizard.
+      Bug fixes.
+    </release>
+    <release version="1.0.0">
+      TLE985x Device Family Pack.
+      Full SDK including examples. Bug fixes.
+    </release>
+    <release version="0.0.6">
+      TLE985x Device Family Pack.
+      Full SDK added (beta version) with bug fixes.
+    </release>
+    <release version="0.0.1">
+      TLE985x Device Family Pack.
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Infineon</keyword>
+    <keyword>Device Support</keyword>
+    <keyword>Device Family Package Infineon</keyword>
+    <keyword>TLE98</keyword>
+    <keyword>TLE985x</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="TLE98xx Series" Dvendor="Infineon:7">
+      <processor Dcore="Cortex-M0" DcoreVersion="r0p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Little-endian"/>
+      <description>
+        The TLE985x series is designed for motor drive applications with LIN/PWM interface
+        - 32-bit ARM Cortex-M0 Core
+        - Ultra low power consumption
+        - Nested Vectored Interrupt Controller (NVIC)
+        - Integrated LIN tranceiver (selected derivates)
+        - Integrated MOSFET Driver and Charge Pump for H-Bridge
+        - Current Sense Amplifier
+      </description>
+      <environment name="uv">
+      </environment>
+
+      <feature type="WDT"           n="1"/>
+      <feature type="ComOther"      n="2"                           name="Universal Serial Interface"/>
+      <feature type="Temp"          n="-40"     m="150"             name="all Devices"/>
+
+      <subFamily DsubFamily="TLE985x Series">
+          <device Dname="TLE9851QXW">
+            <processor Dclock="40000000"/>
+            <compile header="Device/Include/tle985x.h" define="TLE9851QXW"/>
+            <debug      svd="SVD/TLE985x.svd"/>
+            <memory     id="IROM1"                      start="0x11000000"  size="0x10000"    startup="1"   default="1"/>
+            <memory     id="IROM2"                      start="0x10FFFFFC"  size="0x4"        startup="0"   default="1"/>
+            <memory     id="IRAM1"                      start="0x18000000"  size="0x1000"     init   ="0"   default="1"/>
+            <algorithm  name="Flash/TLE985x_OPT.FLM"    start="0x10FFFFFC"  size="0x4"                      default="1"/>
+            <algorithm  name="Flash/TLE9851.FLM"        start="0x11000000"  size="0xF000"                   default="1"/>
+            <algorithm  name="Flash/TLE9851_EEP.FLM"    start="0x1100F000"  size="0x1000"                   default="1"/>
+            <book    name="Documents/TLE985xQX-Users-Manual-10-Infineon.pdf"        title="TLE985x Series Reference Manual"/>
+            <!--book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
+            <book    name="Documents/TLE9851QXW-Data-Sheet-10-Infineon.pdf"         title="TLE9851QXW Data Sheet"/-->
+            <book    name="Documents/html/index.html" title="SDK Help"/>
+            <feature type="ADC"           n="1"       m="10"/>
+            <feature type="ADC"           n="1"       m="8"/>
+            <feature type="IOs"           n="11"/>
+          </device>
+
+          <device Dname="TLE9853QX">
+            <processor Dclock="40000000"/>
+            <compile header="Device/Include/tle985x.h" define="TLE9853QX"/>
+            <debug      svd="SVD/TLE985x.svd"/>
+            <memory     id="IROM1"                      start="0x11000000"  size="0xC000"     startup="1"   default="1"/>
+            <memory     id="IROM2"                      start="0x10FFFFFC"  size="0x4"        startup="0"   default="1"/>
+            <memory     id="IRAM1"                      start="0x18000000"  size="0x1000"     init   ="0"   default="1"/>
+            <algorithm  name="Flash/TLE985x_OPT.FLM"    start="0x10FFFFFC"  size="0x4"                      default="1"/>
+            <algorithm  name="Flash/TLE9853.FLM"        start="0x11000000"  size="0xB000"                   default="1"/>
+            <algorithm  name="Flash/TLE9853_EEP.FLM"    start="0x1100B000"  size="0x1000"                   default="1"/>
+            <book    name="Documents/TLE985xQX-Users-Manual-10-Infineon.pdf"        title="TLE985x Series Reference Manual"/>
+            <!--book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
+            <book    name="Documents/TLE9853QX-Data-Sheet-10-Infineon.pdf"          title="TLE9853QX Data Sheet"/-->
+            <book    name="Documents/html/index.html" title="SDK Help"/>
+            <feature type="ADC"           n="1"       m="10"/>
+            <feature type="ADC"           n="1"       m="8"/>
+            <feature type="IOs"           n="11"/>
+          </device>
+
+          <device Dname="TLE9854QX">
+            <processor Dclock="40000000"/>
+            <compile header="Device/Include/tle985x.h" define="TLE9854QX"/>
+            <debug      svd="SVD/TLE985x.svd"/>
+            <memory     id="IROM1"                      start="0x11000000"  size="0x10000"    startup="1"   default="1"/>
+            <memory     id="IROM2"                      start="0x10FFFFFC"  size="4"          startup="0"   default="1"/>
+            <memory     id="IRAM1"                      start="0x18000000"  size="0x1000"     init   ="0"   default="1"/>
+            <algorithm  name="Flash/TLE985x_OPT.FLM"    start="0x10FFFFFC"  size="0x4"                      default="1"/>
+            <algorithm  name="Flash/TLE9854.FLM"        start="0x11000000"  size="0xF000"                   default="1"/>
+            <algorithm  name="Flash/TLE9854_EEP.FLM"    start="0x1100F000"  size="0x1000"                   default="1"/>
+            <book    name="Documents/TLE985xQX-Users-Manual-10-Infineon.pdf"        title="TLE985x Series Reference Manual"/>
+            <!--book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
+            <book    name="Documents/TLE9854QX-Data-Sheet-10-Infineon.pdf"          title="TLE9854QX Data Sheet"/-->
+            <book    name="Documents/html/index.html" title="SDK Help"/>
+            <feature type="ADC"           n="1"       m="10"/>
+            <feature type="ADC"           n="1"       m="8"/>
+            <feature type="IOs"           n="11"/>
+          </device>
+
+          <device Dname="TLE9855QX">
+            <processor Dclock="40000000"/>
+            <compile header="Device/Include/tle985x.h" define="TLE9855QX"/>
+            <debug      svd="SVD/TLE985x.svd"/>
+            <memory     id="IROM1"                      start="0x11000000"  size="0x18000"    startup="1"   default="1"/>
+            <memory     id="IROM2"                      start="0x10FFFFFC"  size="4"          startup="0"   default="1"/>
+            <memory     id="IRAM1"                      start="0x18000000"  size="0x1000"     init   ="0"   default="1"/>
+            <algorithm  name="Flash/TLE985x_OPT.FLM"    start="0x10FFFFFC"  size="0x4"                      default="1"/>
+            <algorithm  name="Flash/TLE9855.FLM"        start="0x11000000"  size="0x17000"                  default="1"/>
+            <algorithm  name="Flash/TLE9855_EEP.FLM"    start="0x11017000"  size="0x1000"                   default="1"/>
+            <book    name="Documents/TLE985xQX-Users-Manual-10-Infineon.pdf"        title="TLE985x Series Reference Manual"/>
+            <!--book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/-->
+            <book    name="Documents/TLE9855QX-Data-Sheet-10-Infineon.pdf"          title="TLE9855QX Data Sheet"/>
+            <book    name="Documents/html/index.html" title="SDK Help"/>
+            <feature type="ADC"           n="1"       m="10"/>
+            <feature type="ADC"           n="1"       m="8"/>
+            <feature type="IOs"           n="11"/>
+          </device>
+    </subFamily>
+   </family>
+  </devices>
+
+  <conditions>
+  <!-- conditions are dependency rules that can apply to a component or an individual file -->
+    <condition id="TLE985x CMSIS Device">
+      <description>Infineon TLE95x device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="INT"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+      <require Dvendor="Infineon:7" Dname="TLE985*QX*"/>
+    </condition>
+
+    <condition id="TLE985x">
+      <description>Infineon TLE985x device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE985*QX*"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+
+    <!--condition id="TLE9851QXW">
+      <description>Infineon TLE9851QXW device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE9851QXW"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="TLE9853QX">
+      <description>Infineon TLE9853QX device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE9853QX"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="TLE9854QX">
+      <description>Infineon TLE9854QX device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE9854QX"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="TLE9855QX">
+      <description>Infineon TLE9855QX device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE9855QX"/>
+      <require Tcompiler="ARMCC"/>
+    </condition-->
+
+    <!--condition id="TLE985x ARM">
+      <description>Infineon TLE985x device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE985*QX*"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="TLE9851 ARM">
+      <description>Infineon TLE9851 device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE9851QXW"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="TLE9853 ARM">
+      <description>Infineon TLE9853 device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE9853QX"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="TLE9854 ARM">
+      <description>Infineon TLE9854 device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE9854QX"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="TLE9855 ARM">
+      <description>Infineon TLE9855 device series</description>
+      <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
+      <require Dvendor="Infineon:7" Dname="TLE9855QX"/>
+      <require Tcompiler="ARMCC"/>
+    </condition-->
+  </conditions>
+
+   <boards>
+    <board vendor="Infineon" name="TLE9855QX Eval.Kit V1.1" revision="V1.1" salesContact="sales@infineon.com" orderForm="http://www.infineon.com/embeddedpower">
+      <description>Infineon TLE985x Evaluation Board Support and Examples</description>
+      <image small="Images/TLE985x_EvalBoard_v1_0_top_small.jpg" large="Images/TLE985x_EvalBoard_v1_0_top_large.jpg"/>
+      <!--book category="overview"  name="http://www.infineon.com/cms/en/product/evaluation-boards/TLE9879+EVALKIT/evaluation-boards/TLE9879+EVALKIT/productType.html?productType=5546d4624e765da5014eb4e2cc3f2fc5" title="TLE9879 EvalKit Web Page"/-->
+      <!--book category="setup"     name="Documents/TLE9879-EvalKit-UM-110-Infineon.pdf" title="Getting Started"/-->
+      <book category="schematic" name="Documents/TLE9855_EvalKit_V1.1.zip" title="Schematics"/>
+      <mountedDevice    deviceIndex="0" Dvendor="Infineon:7" Dname="TLE9855QX"/>
+      <compatibleDevice deviceIndex="0" Dvendor="Infineon:7" DsubFamily="TLE985x Series"/>
+        <feature type="ODbg"      n="1"              name="On-board J-Linke Lite Debugger"/>
+        <feature type="PWR"       n="12" m="28"      name="POWER Connector for external supply"/>
+        <feature type="DIO"       n="48"             name="Pins at pin headers"/>
+        <feature type="AIO"       n="12"             name="Analog inputs at AD"/>
+        <feature type="LED"       n="9"              name="User LEDs"/>
+        <feature type="Button"    n="5"              name="Push-buttons: Reset, MON1-MON4"/>
+        <feature type="Poti"      n="1"/>
+      <debugInterface adapter="J-Link Lite" connector="Mini-USB"/>
+    </board>
+  </boards>
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="0.0.1" condition="TLE985x CMSIS Device">  <!-- Cversion is necessary -->
+      <description>System Startup for Infineon TLE985x device series</description>
+      <files>
+        <!--  include folder -->
+        <file category="include" name="Device/Include/"/>
+        
+        <!-- startup files -->
+        <file category="source"  name="Device/Source/ARM/startup_tle985x.S" attr="config" condition="TLE985x" version="0.1.0"/>
+
+        <!-- system file -->
+        <file category="source"  name="Device/Source/system_tle985x.c"      attr="config" condition="TLE985x" version="0.1.1"/>
+        <file category="header"  name="Device/Include/system_tle985x.h"     attr="config" condition="TLE985x" version="0.1.1"/>
+
+        <file category="source"  name="Device/Source/tle_device.c"          attr="config" condition="TLE985x" version="0.1.1"/>
+        <file category="header"  name="Device/Include/tle_device.h"         attr="config" condition="TLE985x" version="0.1.1"/>
+        <file category="header"  name="Device/Include/tle_variants.h"       attr="config" condition="TLE985x" version="0.1.0"/>
+
+        <file category="header"  name="Device/Include/types.h"              attr="config" condition="TLE985x" version="0.3.2"/>
+        <file category="source"  name="Device/Include/sfr_access.h"         attr="config" condition="TLE985x" version="0.1.0"/>
+        <file category="header"  name="Device/Include/cmsis_misra.h"        attr="config" condition="TLE985x" version="0.1.0"/>
+
+        <file category="header"  name="Device/Include/tle985x.h"            attr="config" condition="TLE985x" version="1.0.0"/>
+        <file category="sourceC" name="Device/SDK/app/main.c"               attr="template" select="Simple Main" condition="TLE985x" version="1.0.0"/>         
+     </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="ConfigWizard_v2" Cversion="2.1.12" condition="TLE985x">
+     <description>Infineon Config Wizard v2 support</description>
+     <files>
+        <file category="doc" name="Device/SDK/cfgwiz/config.icwp"            attr="config" condition="TLE985x" version="0.0.0"/>
+        <file category="doc" name="Device/SDK/cfgwiz/script/ICW_TLE985x.xml" attr="config" condition="TLE985x" version="1.0.0"/>
+        <file category="doc" name="Device/SDK/cfgwiz/script/TLE985x.mig"     attr="config" condition="TLE985x" version="0.1.0"/>
+        <file category="doc" name="SVD/TLE985x.svd"                          attr="config" condition="TLE985x" version="1.0.0"/>
+
+        <file category="header" name="Device/SDK/cfgwiz/bsl_defines.h"     attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/scu_defines.h"     attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/int_defines.h"     attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/isr_defines.h"     attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/lin_defines.h"     attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/port_defines.h"    attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/pmu_defines.h"     attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/adc1_defines.h"    attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/adc2_defines.h"    attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/bdrv_defines.h"    attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/ccu6_defines.h"    attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/csa_defines.h"     attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/gpt12e_defines.h"  attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/mon_defines.h"     attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/ssc_defines.h"     attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/timer2x_defines.h" attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/uart_defines.h"    attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/math_defines.h"    attr="config" version="0.0.0"/>      
+        <file category="header" name="Device/SDK/cfgwiz/hs_defines.h"      attr="config" version="0.0.0"/>      
+     </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cversion="0.2.2" condition="TLE985x CMSIS Device">
+      <description>System Control Unit (SCU) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_SCU
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/scu.h" version="0.2.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/scu.c" version="0.2.2"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>BootROM driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_BROM
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/bootrom.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/bootrom.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>Watchdog 1 (WDT1) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_WDT1
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/wdt1.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/wdt1.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="INT" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>Interrupt (INT) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_INT
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/int.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/int.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cversion="0.2.2" condition="TLE985x CMSIS Device">
+      <description>Interrupt Service Routines (ISR) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_ISR
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/isr.h" version="0.2.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/isr.c" version="0.2.2"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="LIN" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>LIN Tranceiver (LIN) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_LIN
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/lin.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/lin.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>GPIO Ports (PORT) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_PORT
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/port.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/port.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="PMU" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>Power Management Unit (SCU) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_PMU
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/pmu.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/pmu.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cversion="0.2.4" condition="TLE985x CMSIS Device">
+      <description>Analog Digital Converter 1 (ADC1) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_ADC1
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/adc1.h" version="0.2.4"/>
+        <file category="source" attr="config" name="Device/SDK/src/adc1.c" version="0.2.4"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cversion="0.3.2" condition="TLE985x CMSIS Device">
+      <description>Analog Digital Converter 2 (ADC2) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_ADC2
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/adc2.h" version="0.3.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/adc2.c" version="0.3.2"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="BDRV" Cversion="0.2.3" condition="TLE985x CMSIS Device">
+      <description>Bridge Driver (BDRV) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_BDRV
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/bdrv.h" version="0.2.3"/>
+        <file category="source" attr="config" name="Device/SDK/src/bdrv.c" version="0.2.3"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cversion="0.2.9" condition="TLE985x CMSIS Device">
+      <description>Capture Compare Unit (CCU6) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_CCU6
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/ccu6.h" version="0.2.9"/>
+        <file category="source" attr="config" name="Device/SDK/src/ccu6.c" version="0.2.9"/>
+        </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="CSA" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>Current Sense Amplifier (CSA) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_CSA
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/csa.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/csa.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>General Purpose Timer 12E (GPT12E) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_GPT12E
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/gpt12e.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/gpt12e.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="MON" Cversion="0.2.2" condition="TLE985x CMSIS Device">
+      <description>High Voltage Monitor Input (MON) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_MON
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/mon.h" version="0.2.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/mon.c" version="0.2.2"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>High Speed Synchronous Serial Interface 1 and 2 (SSC) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_SSC
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/ssc.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/ssc.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x" Cversion="0.2.1" condition="TLE985x CMSIS Device">
+      <description>Timer2 and Timer21 (TIMER2x) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_TIMER2X
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/timer2x.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/timer2x.c" version="0.2.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="UART" Cversion="0.2.2" condition="TLE985x CMSIS Device">
+      <description>UART1 and UART2 (UART) driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_UART
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/uart.h" version="0.2.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/uart.c" version="0.2.2"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="MATHDIV" Cversion="0.2.2" condition="TLE985x CMSIS Device">
+      <description>Math driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_MATH
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/mathdiv.h" version="0.2.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/mathdiv.c" version="0.2.2"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="HS" Cversion="0.2.2" condition="TLE985x CMSIS Device">
+      <description>High Side Switch driver for TLE985x</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_SDK_HS
+      </RTE_Components_h>  
+      <files>
+        <file category="header" attr="config" name="Device/SDK/inc/hs.h" version="0.2.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/hs.c" version="0.2.2"/>
+      </files>
+    </component>
+
+  </components>
+  <examples>
+    <example name="PMU_POWER_SAVING_SLEEP_MODE" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/POWER_SAVING_SLEEP_MODE_EXAMPLE_TLE985X/">
+      <description>Power Saving Modes - Sleep Mode</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="POWER_SAVING_SLEEP_MODE_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="BLINKY" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/BLINKY_EXAMPLE_TLE985X/">
+      <description>Blinky - blinks LED1</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="BLINKY_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="Blinky Running Lights" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/BLINKY_RUNNING_LIGHTS_EXAMPLE_TLE985X/">
+      <description>Blinky - Running Lights</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="BLINKY_RunningLights.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="PMU_POWER_SAVING_STOP_MODE" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/POWER_SAVING_STOP_MODE_EXAMPLE_TLE985X/">
+      <description>Power Saving Modes - Stop Mode</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="POWER_SAVING_STOP_MODE_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="PMU_POWER_SAVING_SLEEP_MODE_CYCLIC_WAKE" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/POWER_SAVING_SLEEP_MODE_CYCLIC_WAKE_EXAMPLE_TLE985X/">
+      <description>Power Saving Modes - Sleep Mode with cyclic wake</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="POWER_SAVING_SLEEP_MODE_CYCLIC_WAKE_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="PMU_RESET_STATUS" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/RESET_STATUS_EXAMPLE_TLE985X/">
+      <description>Reset Status Evaluation</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="RESET_STATUS_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="PMU_VDDEXT" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/VDDEXT_EXAMPLE_TLE985X/">
+      <description>VDDEXT handling</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="VDDEXT_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="SCU_PLL" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/PLL_EXAMPLE_TLE985X/">
+      <description>PLL adjustment</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="PLL_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="SCU_PLL_XTAL" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/PLL_XTAL_EXAMPLE_TLE985X/">
+      <description>PLL with external XTAL</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="PLL_XTAL_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="NVM_PROGRAMMING" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/NVM_PROG_EXAMPLE_TLE985X/">
+      <description>NVM Page Programming</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="NVM_PROG_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="NVM_RAM_BRANCH" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/NVM_RAM_BRANCH_EXAMPLE_TLE985X/">
+      <description>Code execution in RAM</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="NVM_RAM_BRANCH_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="NVM_PROTECTION" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/NVM_PROTECTION_EXAMPLE_TLE985X/">
+      <description>Flash Page Write Protection</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="NVM_PROTECTION_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="ADC2_VS" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/ADC2_VS_EXAMPLE_TLE985X/">
+      <description>ADC2 VS Measurement</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ADC2_VS_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC2"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="ADC1_POTI_SEQ" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/ADC1_POTI_SEQ_EXAMPLE_TLE985X/">
+      <description>ADC1 in Sequencer Mode reading in the Poti at Channel 4</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ADC1_POTI_SEQ_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="ADC1_POTI_EIM" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/ADC1_POTI_EIM_EXAMPLE_TLE985X/">
+      <description>ADC1 with Exceptional Interrupt Mode reading in the Poti at Channel 4</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ADC1_POTI_EIM_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="ADC1_POTI_ESM" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/ADC1_POTI_ESM_EXAMPLE_TLE985X/">
+      <description>ADC1 with Exceptional Sequencer Mode reading in the Poti at Channel 4</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ADC1_POTI_ESM_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="TIMER2_BLINK" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/TIMER2_BLINK_EXAMPLE_TLE985X/">
+      <description>TIMER2 Blinking</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TIMER2_BLINK_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    
+    <example name="TIMER2_PWM_CAPTURE" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/TIMER2_PWM_CAPTURE_EXAMPLE_TLE985X/">
+      <description>TIMER2 PWM Duty Cycle and Period Measurement</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="TIMER2_PWM_CAPTURE_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+    
+    <example name="GPT12E_T3_RELOAD" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/GPT12E_T3_RELOAD_EXAMPLE_TLE985X/">
+      <description>GPT12E Timer3 reloaded by Timer2</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="GPT12E_T3_RELOAD_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="GPT12E_T3_CONCAT" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/GPT12E_T3_CONCAT_EXAMPLE_TLE985X/">
+      <description>Timer2 and Timer3 as 32bit Timer</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="GPT12E_T3_CONCAT_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="UART1_SEND" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/UART1_SEND_EXAMPLE_TLE985X/">
+      <description>UART1 sends data over LIN Transceiver</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="UART1_SEND_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="SSC1_SEND" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/SSC1_SEND_EXAMPLE_TLE985X/">
+      <description>SSC1 sends data as SPI Master</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="SSC1_SEND_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SSC"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="GPT12E"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="SSC1_2_SSC2" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/SSC1_TO_SSC2_EXAMPLE_TLE985X/">
+      <description>SSC1 sends to SSC2</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="SSC1_TO_SSC2_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SSC"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="CCU6_PWM" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/CCU6_PWM_EXAMPLE_TLE985X/">
+      <description>CCU6 generates PWM signals</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="CCU6_PWM_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="CCU6_ADC1" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/CCU6_ADC1_EXAMPLE_TLE985X/">
+      <description>PWM synchroneous ADC measurement, the Poti at Channel 4 adjusts the PWM</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="CCU6_ADC1_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="UART2_TTY" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/UART2_TTY_EXAMPLE_TLE985X/">
+      <description>UART2 sends printf messages</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="UART2_TTY_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="LIN Slave" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/LIN_SLAVE_EXAMPLE_TLE985X/">
+      <description>running the IHR LIN LLD in a LIN Slave configuration</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="LIN_SLAVE_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="LIN Master" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/LIN_MASTER_EXAMPLE_TLE985X/">
+      <description>running the IHR LIN LLD in a LIN Master configuration</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="LIN_MASTER_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="CCU6_SINUSOIDAL_PWM" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/CCU6_SIN_PWM_EXAMPLE_TLE985X/">
+      <description>CCU6 generates sinusoidal PWM signal</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="CCU6_SIN_PWM_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+    <example name="MATH" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/MATH_EXAMPLE_TLE985X/">
+      <description>Shows the calculation speed of the MATH unit</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="MATH_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MATH"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+
+	    <example name="BDRV_CCU6_ADC1_MOTOR" doc="Abstract.txt" folder="Boards/Infineon/TLE985x_EvalBoard/BDRV_CCU6_ADC1_MOTOR_EXAMPLE_TLE985X/">
+      <description>Runs a motor with speed and direction control</description>
+      <board name="TLE9855QX Eval.Kit V1.1" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="BDRV_CCU6_ADC1_MOTOR_EXAMPLE_TLE985X.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BDRV"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM"/>
+        <category>Getting Started</category>
+        <category>SDK</category>
+      </attributes>
+    </example>
+	
+  </examples>
+</package>
