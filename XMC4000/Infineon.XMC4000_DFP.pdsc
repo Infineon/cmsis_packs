@@ -3,11 +3,11 @@
 <package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
   <license>License/CMSIS_END_USER_LICENSE_AGREEMENT.txt</license> 
   <vendor>Infineon</vendor>
-  <url>http://dave.infineon.com/Libraries/CMSIS_PACK/</url>
+  <url>https://github.com/Infineon/cmsis_packs/XMC4000/</url>
   <name>XMC4000_DFP</name>
   <description>
       Infineon XMC4000 Series Device Support, Drivers and Examples
-      Note: The new PACK download address is http://dave.infineon.com/Libraries/CMSIS_PACK/  
+      Note: The new PACK download address is https://github.com/Infineon/cmsis_packs 
   </description>
   <supportContact>http://www.infineon.com/cms/en/corporate/company/contact/support/index.html</supportContact> 
   
