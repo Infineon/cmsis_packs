@@ -3,7 +3,7 @@
 <package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
   <license>License/CMSIS_END_USER_LICENSE_AGREEMENT.txt</license>  
   <vendor>Infineon</vendor>
-  <url>https://github.com/Infineon/cmsis_packs/XMC1000/</url>
+  <url>https://github.com/Infineon/cmsis_packs/raw/master/XMC1000/</url>
   <name>XMC1000_DFP</name>
   <description>
       Infineon XMC1000 Series Device Support, Drivers and Examples

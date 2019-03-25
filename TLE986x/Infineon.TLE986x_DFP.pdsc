@@ -3,7 +3,7 @@
 <package schemaVersion="1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
   <license>Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt</license>  
   <vendor>Infineon</vendor>
-  <url>https://github.com/Infineon/cmsis_packs/TLE986x/</url>
+  <url>https://github.com/Infineon/cmsis_packs/raw/master/TLE986x/</url>
   <name>TLE986x_DFP</name>
   <description>Infineon TLE986x Series Device Support</description>
   <supportContact>http://www.infineon.com/cms/en/corporate/company/contact/support/index.html</supportContact>
