@@ -7,7 +7,7 @@
     <pdsc url="https://github.com/Infineon/cmsis_packs/raw/master/XMC1000/" vendor="Infineon" name="XMC1000_DFP" version="2.9.0" />
     <pdsc url="https://github.com/Infineon/cmsis_packs/raw/master/XMC4000/" vendor="Infineon" name="XMC4000_DFP" version="2.11.0" />
     <pdsc url="https://github.com/Infineon/cmsis_packs/raw/master/TLE984x/" vendor="Infineon" name="TLE984x_DFP" version="1.1.1" />
-    <pdsc url="https://github.com/Infineon/cmsis_packs/raw/master/TLE985x/" vendor="Infineon" name="TLE985x_DFP" version="1.1.0" />
+    <pdsc url="https://github.com/Infineon/cmsis_packs/TLE985x/"            vendor="Infineon" name="TLE985x_DFP" version="1.1.0" />
     <pdsc url="https://github.com/Infineon/cmsis_packs/raw/master/TLE986x/" vendor="Infineon" name="TLE986x_DFP" version="1.4.0" />
     <pdsc url="https://github.com/Infineon/cmsis_packs/raw/master/TLE987x/" vendor="Infineon" name="TLE987x_DFP" version="1.4.0" />
   </pindex>
