@@ -9,7 +9,12 @@
   <supportContact>http://www.infineon.com/support</supportContact>
   
   <releases>
-    <release version="1.1.0" date="2019-04-01">
+    <release version="1.1.2" date="2019-04-01">
+	  Firmware user manual added
+	  scu: added open/close password where necessary
+	  adaption to new PACK deployment process
+    </release>
+    <release version="1.1.0">
       SDK Unit tested
 	  MISRA 2012 compliant
 	  ARMCC v6 support
@@ -78,8 +83,8 @@
             <algorithm  name="Flash/TLE9851.FLM"        start="0x11000000"  size="0xF000"                   default="1"/>
             <algorithm  name="Flash/TLE9851_EEP.FLM"    start="0x1100F000"  size="0x1000"                   default="1"/>
             <book    name="Documents/TLE985xQX-Users-Manual-10-Infineon.pdf"        title="TLE985x Series Reference Manual"/>
-            <!--book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
-            <book    name="Documents/TLE9851QXW-Data-Sheet-10-Infineon.pdf"         title="TLE9851QXW Data Sheet"/-->
+            <book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
+            <!--book    name="Documents/TLE9851QXW-Data-Sheet-10-Infineon.pdf"         title="TLE9851QXW Data Sheet"/-->
             <book    name="Documents/html/index.html" title="SDK Help"/>
             <feature type="ADC"           n="1"       m="10"/>
             <feature type="ADC"           n="1"       m="8"/>
@@ -97,8 +102,8 @@
             <algorithm  name="Flash/TLE9853.FLM"        start="0x11000000"  size="0xB000"                   default="1"/>
             <algorithm  name="Flash/TLE9853_EEP.FLM"    start="0x1100B000"  size="0x1000"                   default="1"/>
             <book    name="Documents/TLE985xQX-Users-Manual-10-Infineon.pdf"        title="TLE985x Series Reference Manual"/>
-            <!--book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
-            <book    name="Documents/TLE9853QX-Data-Sheet-10-Infineon.pdf"          title="TLE9853QX Data Sheet"/-->
+            <book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
+            <!--book    name="Documents/TLE9853QX-Data-Sheet-10-Infineon.pdf"          title="TLE9853QX Data Sheet"/-->
             <book    name="Documents/html/index.html" title="SDK Help"/>
             <feature type="ADC"           n="1"       m="10"/>
             <feature type="ADC"           n="1"       m="8"/>
@@ -116,8 +121,8 @@
             <algorithm  name="Flash/TLE9854.FLM"        start="0x11000000"  size="0xF000"                   default="1"/>
             <algorithm  name="Flash/TLE9854_EEP.FLM"    start="0x1100F000"  size="0x1000"                   default="1"/>
             <book    name="Documents/TLE985xQX-Users-Manual-10-Infineon.pdf"        title="TLE985x Series Reference Manual"/>
-            <!--book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
-            <book    name="Documents/TLE9854QX-Data-Sheet-10-Infineon.pdf"          title="TLE9854QX Data Sheet"/-->
+            <book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
+            <!--book    name="Documents/TLE9854QX-Data-Sheet-10-Infineon.pdf"          title="TLE9854QX Data Sheet"/-->
             <book    name="Documents/html/index.html" title="SDK Help"/>
             <feature type="ADC"           n="1"       m="10"/>
             <feature type="ADC"           n="1"       m="8"/>
@@ -135,7 +140,7 @@
             <algorithm  name="Flash/TLE9855.FLM"        start="0x11000000"  size="0x17000"                  default="1"/>
             <algorithm  name="Flash/TLE9855_EEP.FLM"    start="0x11017000"  size="0x1000"                   default="1"/>
             <book    name="Documents/TLE985xQX-Users-Manual-10-Infineon.pdf"        title="TLE985x Series Reference Manual"/>
-            <!--book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/-->
+            <book    name="Documents/TLE985xQX-BootROM-User-Manual-10-Infineon.pdf" title="TLE985x Series BootROM Manual"/>
             <book    name="Documents/TLE9855QX-Data-Sheet-10-Infineon.pdf"          title="TLE9855QX Data Sheet"/>
             <book    name="Documents/html/index.html" title="SDK Help"/>
             <feature type="ADC"           n="1"       m="10"/>
@@ -303,14 +308,14 @@
      </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cversion="0.2.2" condition="TLE985x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cversion="0.2.3" condition="TLE985x CMSIS Device">
       <description>System Control Unit (SCU) driver for TLE985x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_SCU
       </RTE_Components_h>  
       <files>
-        <file category="header" attr="config" name="Device/SDK/inc/scu.h" version="0.2.2"/>
-        <file category="source" attr="config" name="Device/SDK/src/scu.c" version="0.2.2"/>
+        <file category="header" attr="config" name="Device/SDK/inc/scu.h" version="0.2.3"/>
+        <file category="source" attr="config" name="Device/SDK/src/scu.c" version="0.2.3"/>
       </files>
     </component>
 
