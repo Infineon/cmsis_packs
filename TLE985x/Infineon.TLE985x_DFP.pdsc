@@ -3,13 +3,13 @@
 <package schemaVersion="1.3" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
   <license>Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt</license>  
   <vendor>Infineon</vendor>
-  <url>https://raw.githubusercontent.com/Infineon/cmsis_packs/master/TLE985x/</url>
+  <url>https://github.com/Infineon/cmsis_packs/raw/master/TLE985x/</url>
   <name>TLE985x_DFP</name>
   <description>Infineon TLE985x Series Device Support</description>
   <supportContact>http://www.infineon.com/support</supportContact>
   
   <releases>
-    <release version="1.1.0" date="2019-03-28">
+    <release version="1.1.0" date="2019-04-01">
       SDK Unit tested
 	  MISRA 2012 compliant
 	  ARMCC v6 support
