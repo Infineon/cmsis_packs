@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
-  <license>Licence\CMSIS_END_USER_LICENCE_AGREEMENT.txt</license>
+  <license>Licence/CMSIS_END_USER_LICENCE_AGREEMENT.txt</license>
   <vendor>Infineon</vendor>
   <url>https://github.com/Infineon/cmsis_packs/raw/master/TLE984x/</url>
   <name>TLE984x_DFP</name>
@@ -9,6 +9,19 @@
   <supportContact>http://www.infineon.com/cms/en/corporate/company/contact/support/index.html</supportContact>
   
     <releases>
+		<release version="1.1.2">
+          Compatibility with both versions of ConfigWizard added
+		  SDK is MISRA 2012 compliant
+		  renamed ADC1_CHX_ESM to ADC1_CHx_ESM,
+		  renamed ADC1_CHX_EIM to ADC1_CHx_EIM
+		  Removed function ADC1_SOOC_Set
+		  CCU6_SetT13Compare function updated  
+		  Changed return value of function SCU_ChangeNVMProtection from int32_t to sint32_t 
+		  Reworked SCU_EnterSlowMode and added parameter for prescaler
+		  removed UART1_Send_HEX, UART1_Send_DEC, UART1_Send_String,UART2_Send_HEX, UART2_Send_DEC, and UART2_Send_String
+		  Added range for functions UART1/2_BaudRate_Set
+		  Delay_us function updated to allow delay times of more than 999us
+        </release>
         <release version="1.1.1">
           Bug fixes on uart.c/.h, VDDEXT interrupt, external interrupts,
           CCU6 trap interrupt, T6 output pin configuration and
@@ -55,119 +68,126 @@
             <subFamily DsubFamily="TLE984x Series">
                 <device Dname="TLE9842QX">
                     <processor Dclock="25000000"/>
-                    <compile header="Device\Include\tle984x.h" define="TLE9842QX"/>
-                    <debug      svd="SVD\TLE984x.svd"/>
+                    <compile header="Device/Include/tle984x.h" define="TLE9842QX"/>
+                    <debug      svd="SVD/TLE984x.svd"/>
                     <memory     id="IROM1"                      start="0x11000000"  size="0x9000"     startup="1"   default="1"/>
                     <memory     id="IROM2"                      start="0x10FFFFFC"  size="4"          startup="0"   default="1"/>
                     <memory     id="IRAM1"                      start="0x18000000"  size="0x800"      init   ="0"   default="1"/>
-                    <algorithm  name="Flash\TLE9842.FLM"        start="0x11000000"  size="0x8000"                   default="1"/>
-                    <algorithm  name="Flash\TLE9842_EEP.FLM"    start="0x11008000"  size="0x1000"                   default="1"/>
-                    <algorithm  name="Flash\TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
-                    <book    name="Documents\Infineon-TLE984xQX-UM-01_00-EN.pdf"    title="TLE984x Series User Manual"/>
-                    <book    name="Documents\Infineon-TLE984x-FWUM-01_01-EN.pdf"    title="TLE984x Series Firmware User Manual"/>
-                    <book    name="Documents\Infineon-TLE9842QX-DS-01_00-EN.pdf"    title="TLE9842QX Data Sheet"/>
+                    <algorithm  name="Flash/TLE9842.FLM"        start="0x11000000"  size="0x8000"                   default="1"/>
+                    <algorithm  name="Flash/TLE9842_EEP.FLM"    start="0x11008000"  size="0x1000"                   default="1"/>
+                    <algorithm  name="Flash/TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
+                    <book    name="Documents/Infineon-TLE984xQX-UM-01_10-EN.pdf"    title="TLE984x Series User Manual"/>
+                    <book    name="Documents/Infineon-TLE984xQX-FWUM-v01_02-EN.pdf" title="TLE984x Series Firmware User Manual"/>
+                    <book    name="Documents/Infineon-TLE9842QX-DS-01_00-EN.pdf"    title="TLE9842QX Data Sheet"/>
+                    <book    name="Documents/html/index.html" title="SDK Help"/>
                     <feature type="ADC"           n="1"       m="10"/>
                     <feature type="ADC"           n="1"       m="8"/>
                     <feature type="IOs"           n="11"/>
                 </device>
                 <device Dname="TLE9842-2QX">
                     <processor Dclock="40000000"/>
-                    <compile header="Device\Include\tle984x.h" define="TLE9842_2QX"/>
-                    <debug      svd="SVD\TLE984x.svd"/>
+                    <compile header="Device/Include/tle984x.h" define="TLE9842_2QX"/>
+                    <debug      svd="SVD/TLE984x.svd"/>
                     <memory     id="IROM1"                      start="0x11000000"  size="0xA000"     startup="1"   default="1"/>
                     <memory     id="IROM2"                      start="0x10FFFFFC"  size="4"          startup="0"   default="1"/>
                     <memory     id="IRAM1"                      start="0x18000000"  size="0x800"      init   ="0"   default="1"/>
-                    <algorithm  name="Flash\TLE9842_2.FLM"      start="0x11000000"  size="0x9000"                   default="1"/>
-                    <algorithm  name="Flash\TLE9842_2_EEP.FLM"  start="0x11009000"  size="0x1000"                   default="1"/>
-                    <algorithm  name="Flash\TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
-                    <book    name="Documents\Infineon-TLE984xQX-UM-01_00-EN.pdf"    title="TLE984x Series User Manual"/>
-                    <book    name="Documents\Infineon-TLE984x-FWUM-01_01-EN.pdf"    title="TLE984x Series Firmware User Manual"/>
-                    <book    name="Documents\Infineon-TLE9842-2QX-DS-01_00-EN.pdf"  title="TLE9842-2QX Data Sheet"/>
+                    <algorithm  name="Flash/TLE9842_2.FLM"      start="0x11000000"  size="0x9000"                   default="1"/>
+                    <algorithm  name="Flash/TLE9842_2_EEP.FLM"  start="0x11009000"  size="0x1000"                   default="1"/>
+                    <algorithm  name="Flash/TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
+                    <book    name="Documents/Infineon-TLE984xQX-UM-01_10-EN.pdf"    title="TLE984x Series User Manual"/>
+                    <book    name="Documents/Infineon-TLE984xQX-FWUM-v01_02-EN.pdf" title="TLE984x Series Firmware User Manual"/>
+                    <book    name="Documents/Infineon-TLE9842-2QX-DS-01_00-EN.pdf"  title="TLE9842-2QX Data Sheet"/>
+                    <book    name="Documents/html/index.html" title="SDK Help"/>
                     <feature type="ADC"           n="1"       m="10"/>
                     <feature type="ADC"           n="1"       m="8"/>
                     <feature type="IOs"           n="11"/>
                 </device>
                 <device Dname="TLE9843QX">
                     <processor Dclock="25000000"/>
-                    <compile header="Device\Include\tle984x.h" define="TLE9843QX"/>
-                    <debug      svd="SVD\TLE984x.svd"/>
+                    <compile header="Device/Include/tle984x.h" define="TLE9843QX"/>
+                    <debug      svd="SVD/TLE984x.svd"/>
                     <memory     id="IROM1"                      start="0x11000000"  size="0xC000"     startup="1"   default="1"/>
                     <memory     id="IROM2"                      start="0x10FFFFFC"  size="4"          startup="0"   default="1"/>
                     <memory     id="IRAM1"                      start="0x18000000"  size="0x1000"     init   ="0"   default="1"/>
-                    <algorithm  name="Flash\TLE9843.FLM"        start="0x11000000"  size="0xB000"                   default="1"/>
-                    <algorithm  name="Flash\TLE9843_EEP.FLM"    start="0x1100B000"  size="0x1000"                   default="1"/>
-                    <algorithm  name="Flash\TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
-                    <book    name="Documents\Infineon-TLE984xQX-UM-01_00-EN.pdf"    title="TLE984x Series User Manual"/>
-                    <book    name="Documents\Infineon-TLE984x-FWUM-01_01-EN.pdf"    title="TLE984x Series Firmware User Manual"/>
-                    <book    name="Documents\Infineon-TLE9843QX-DS-01_00-EN.pdf"    title="TLE9843QX Data Sheet"/>
+                    <algorithm  name="Flash/TLE9843.FLM"        start="0x11000000"  size="0xB000"                   default="1"/>
+                    <algorithm  name="Flash/TLE9843_EEP.FLM"    start="0x1100B000"  size="0x1000"                   default="1"/>
+                    <algorithm  name="Flash/TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
+                    <book    name="Documents/Infineon-TLE984xQX-UM-01_10-EN.pdf"    title="TLE984x Series User Manual"/>
+                    <book    name="Documents/Infineon-TLE984xQX-FWUM-v01_02-EN.pdf" title="TLE984x Series Firmware User Manual"/>
+                    <book    name="Documents/Infineon-TLE9843QX-DS-01_00-EN.pdf"    title="TLE9843QX Data Sheet"/>
+                    <book    name="Documents/html/index.html" title="SDK Help"/>
                     <feature type="ADC"           n="1"       m="10"/>
                     <feature type="ADC"           n="1"       m="8"/>
                     <feature type="IOs"           n="11"/>
                 </device>
                 <device Dname="TLE9843-2QX">
                     <processor Dclock="40000000"/>
-                    <compile header="Device\Include\tle984x.h" define="TLE9843_2QX"/>
-                    <debug      svd="SVD\TLE984x.svd"/>
+                    <compile header="Device/Include/tle984x.h" define="TLE9843_2QX"/>
+                    <debug      svd="SVD/TLE984x.svd"/>
                     <memory     id="IROM1"                      start="0x11000000"  size="0D000"      startup="1"   default="1"/>
                     <memory     id="IROM2"                      start="0x10FFFFFC"  size="4"          startup="0"   default="1"/>
                     <memory     id="IRAM1"                      start="0x18000000"  size="0x1000"     init   ="0"   default="1"/>
-                    <algorithm  name="Flash\TLE9843_2.FLM"      start="0x11000000"  size="0xC000"                   default="1"/>
-                    <algorithm  name="Flash\TLE9843_2_EEP.FLM"  start="0x1100C000"  size="0x1000"                   default="1"/>
-                    <algorithm  name="Flash\TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
-                    <book    name="Documents\Infineon-TLE984xQX-UM-01_00-EN.pdf"    title="TLE984x Series User Manual"/>
-                    <book    name="Documents\Infineon-TLE984x-FWUM-01_01-EN.pdf"    title="TLE984x Series Firmware User Manual"/>
-                    <book    name="Documents\Infineon-TLE9843-2QX-DS-01_00-EN.pdf"  title="TLE9843-2QX Data Sheet"/>
+                    <algorithm  name="Flash/TLE9843_2.FLM"      start="0x11000000"  size="0xC000"                   default="1"/>
+                    <algorithm  name="Flash/TLE9843_2_EEP.FLM"  start="0x1100C000"  size="0x1000"                   default="1"/>
+                    <algorithm  name="Flash/TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
+                    <book    name="Documents/Infineon-TLE984xQX-UM-01_10-EN.pdf"    title="TLE984x Series User Manual"/>
+                    <book    name="Documents/Infineon-TLE984xQX-FWUM-v01_02-EN.pdf" title="TLE984x Series Firmware User Manual"/>
+                    <book    name="Documents/Infineon-TLE9843-2QX-DS-01_00-EN.pdf"  title="TLE9843-2QX Data Sheet"/>
+                    <book    name="Documents/html/index.html" title="SDK Help"/>
                     <feature type="ADC"           n="1"       m="10"/>
                     <feature type="ADC"           n="1"       m="8"/>
                     <feature type="IOs"           n="11"/>
                 </device>
                 <device Dname="TLE9844QX">
                     <processor Dclock="25000000"/>
-                    <compile header="Device\Include\tle984x.h" define="TLE9844QX"/>
-                    <debug      svd="SVD\TLE984x.svd"/>
+                    <compile header="Device/Include/tle984x.h" define="TLE9844QX"/>
+                    <debug      svd="SVD/TLE984x.svd"/>
                     <memory     id="IROM1"                      start="0x11000000"  size="0x10000"    startup="1"   default="1"/>
                     <memory     id="IROM2"                      start="0x10FFFFFC"  size="4"          startup="0"   default="1"/>
                     <memory     id="IRAM1"                      start="0x18000000"  size="0x1000"     init   ="0"   default="1"/>
-                    <algorithm  name="Flash\TLE9844.FLM"        start="0x11000000"  size="0xF000"                   default="1"/>
-                    <algorithm  name="Flash\TLE9844_EEP.FLM"    start="0x1100F000"  size="0x1000"                   default="1"/>
-                    <algorithm  name="Flash\TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
-                    <book    name="Documents\Infineon-TLE984xQX-UM-01_00-EN.pdf"    title="TLE984x Series User Manual"/>
-                    <book    name="Documents\Infineon-TLE984x-FWUM-01_01-EN.pdf"    title="TLE984x Series Firmware User Manual"/>
-                    <book    name="Documents\Infineon-TLE9844QX-DS-01_00-EN.pdf"    title="TLE9844QX Data Sheet"/>
+                    <algorithm  name="Flash/TLE9844.FLM"        start="0x11000000"  size="0xF000"                   default="1"/>
+                    <algorithm  name="Flash/TLE9844_EEP.FLM"    start="0x1100F000"  size="0x1000"                   default="1"/>
+                    <algorithm  name="Flash/TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
+                    <book    name="Documents/Infineon-TLE984xQX-UM-01_10-EN.pdf"    title="TLE984x Series User Manual"/>
+                    <book    name="Documents/Infineon-TLE984xQX-FWUM-v01_02-EN.pdf" title="TLE984x Series Firmware User Manual"/>
+                    <book    name="Documents/Infineon-TLE9844QX-DS-01_00-EN.pdf"    title="TLE9844QX Data Sheet"/>
+                    <book    name="Documents/html/index.html" title="SDK Help"/>
                     <feature type="ADC"           n="1"       m="10"/>
                     <feature type="ADC"           n="1"       m="8"/>
                     <feature type="IOs"           n="11"/>
                 </device>
                 <device Dname="TLE9844-2QX">
                     <processor Dclock="40000000"/>
-                    <compile header="Device\Include\tle984x.h" define="TLE9844_2QX"/>
-                    <debug      svd="SVD\TLE984x.svd"/>
+                    <compile header="Device/Include/tle984x.h" define="TLE9844_2QX"/>
+                    <debug      svd="SVD/TLE984x.svd"/>
                     <memory     id="IROM1"                      start="0x11000000"  size="0x10000"    startup="1"   default="1"/>
                     <memory     id="IROM2"                      start="0x10FFFFFC"  size="4"          startup="0"   default="1"/>
                     <memory     id="IRAM1"                      start="0x18000000"  size="0x1000"     init   ="0"   default="1"/>
-                    <algorithm  name="Flash\TLE9844_2.FLM"      start="0x11000000"  size="0xF000"                   default="1"/>
-                    <algorithm  name="Flash\TLE9844_2_EEP.FLM"  start="0x1100F000"  size="0x1000"                   default="1"/>
-                    <algorithm  name="Flash\TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
-                    <book    name="Documents\Infineon-TLE984xQX-UM-01_00-EN.pdf"    title="TLE984x Series User Manual"/>
-                    <book    name="Documents\Infineon-TLE984x-FWUM-01_01-EN.pdf"    title="TLE984x Series Firmware User Manual"/>
-                    <book    name="Documents\Infineon-TLE9844-2QX-DS-01_00-EN.pdf"  title="TLE9844-2QX Data Sheet"/>
+                    <algorithm  name="Flash/TLE9844_2.FLM"      start="0x11000000"  size="0xF000"                   default="1"/>
+                    <algorithm  name="Flash/TLE9844_2_EEP.FLM"  start="0x1100F000"  size="0x1000"                   default="1"/>
+                    <algorithm  name="Flash/TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
+                    <book    name="Documents/Infineon-TLE984xQX-UM-01_10-EN.pdf"    title="TLE984x Series User Manual"/>
+                    <book    name="Documents/Infineon-TLE984xQX-FWUM-v01_02-EN.pdf" title="TLE984x Series Firmware User Manual"/>
+                    <book    name="Documents/Infineon-TLE9844-2QX-DS-01_00-EN.pdf"  title="TLE9844-2QX Data Sheet"/>
+                    <book    name="Documents/html/index.html" title="SDK Help"/>
                     <feature type="ADC"           n="1"       m="10"/>
                     <feature type="ADC"           n="1"       m="8"/>
                     <feature type="IOs"           n="11"/>
                 </device>
                 <device Dname="TLE9845QX">
                     <processor Dclock="40000000"/>
-                    <compile header="Device\Include\tle984x.h" define="TLE9845QX"/>
-                    <debug      svd="SVD\TLE984x.svd"/>
+                    <compile header="Device/Include/tle984x.h" define="TLE9845QX"/>
+                    <debug      svd="SVD/TLE984x.svd"/>
                     <memory     id="IROM1"                      start="0x11000000"  size="0xC000"     startup="1"   default="1"/>
                     <memory     id="IROM2"                      start="0x10FFFFFC"  size="4"          startup="0"   default="1"/>
                     <memory     id="IRAM1"                      start="0x18000000"  size="0x1000"     init   ="0"   default="1"/>
-                    <algorithm  name="Flash\TLE9845.FLM"        start="0x11000000"  size="0xB000"                   default="1"/>
-                    <algorithm  name="Flash\TLE9845_EEP.FLM"    start="0x1100B000"  size="0x1000"                   default="1"/>
-                    <algorithm  name="Flash\TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
-                    <book    name="Documents\Infineon-TLE984xQX-UM-01_00-EN.pdf"    title="TLE984x Series User Manual"/>
-                    <book    name="Documents\Infineon-TLE984x-FWUM-01_01-EN.pdf"    title="TLE984x Series Firmware User Manual"/>
-                    <book    name="Documents\Infineon-TLE9845QX-DS-01_00-EN.pdf"    title="TLE9845QX Data Sheet"/>
+                    <algorithm  name="Flash/TLE9845.FLM"        start="0x11000000"  size="0xB000"                   default="1"/>
+                    <algorithm  name="Flash/TLE9845_EEP.FLM"    start="0x1100B000"  size="0x1000"                   default="1"/>
+                    <algorithm  name="Flash/TLE984x_OPT.FLM"    start="0x10FFFFFC"  size="4"                        default="1"/>
+                    <book    name="Documents/Infineon-TLE984xQX-UM-01_10-EN.pdf"    title="TLE984x Series User Manual"/>
+                    <book    name="Documents/Infineon-TLE984xQX-FWUM-v01_02-EN.pdf" title="TLE984x Series Firmware User Manual"/>
+                    <book    name="Documents/Infineon-TLE9845QX-DS-01_00-EN.pdf"    title="TLE9845QX Data Sheet"/>
+                    <book    name="Documents/html/index.html" title="SDK Help"/>
                     <feature type="ADC"           n="1"       m="10"/>
                     <feature type="ADC"           n="1"       m="8"/>
                     <feature type="IOs"           n="11"/>
@@ -178,7 +198,21 @@
 
   <conditions>
   <!-- conditions are dependency rules that can apply to a component or an individual file -->
-    <condition id="TLE984x CMSIS Device">
+    <condition id="Only ConfigWizard">
+	<!-- Condition for ConfigWizard_v1.x -->
+		<description>If ConfigWizard v1 is selected, version 2.x must not be selected</description>
+		<deny Cclass="Device" Cgroup="ConfigWizard_v2" Csub=""/>
+		<require condition="TLE984x"/>
+	</condition>
+	
+	<condition id="Only ConfigWizard_v2">
+	<!-- Condition for ConfigWizard_v2.x -->
+		<description>If ConfigWizard v2.x is selected, version 1.x must not be selected</description>
+		<deny Cclass="Device" Cgroup="ConfigWizard" Csub=""/>
+		<require condition="TLE984x"/>
+	</condition>
+	
+	<condition id="TLE984x CMSIS Device">
     <!-- conditions selecting Devices -->
       <description>Infineon TLE984x device series</description>
       <require Cclass ="CMSIS" Cgroup="CORE" Csub=""/>
@@ -188,7 +222,11 @@
       <require Cclass="Device" Cgroup="SDK" Csub="ISR"/>
       <require Cclass="Device" Cgroup="SDK" Csub="INT"/>
       <require Cclass="Device" Cgroup="SDK" Csub="PORT"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="LIN"/>
+      <require Cclass="Device" Cgroup="SDK" Csub="PMU"/>
       <require Dvendor="Infineon:7" Dname="TLE984*QX"/>
+	  <accept Cclass="Device" Cgroup="ConfigWizard" Csub=""/>
+	  <accept Cclass="Device" Cgroup="ConfigWizard_v2" Csub=""/>
     </condition>
 
     <condition id="TLE984x">
@@ -259,10 +297,10 @@
   <boards>
     <board vendor="Infineon" name="TLE984x Eval.Board Rev1.4" revision="V1.0" salesContact="sales@infineon.com" orderForm="http://www.infineon.com/embeddedpower">
       <description>Infineon TLE984x Eval. Board Support and Examples</description>
-      <image small="Images\TLE9844_EvalKit_v1_top_small.jpg" large="Images\TLE9844_EvalKit_v1_top_large.jpg"/>
+      <image small="Images/TLE9844_EvalKit_v1_top_small.jpg" large="Images/TLE9844_EvalKit_v1_top_large.jpg"/>
       <book category="overview"  name="http://www.infineon.com/tle984x" title="TLE9844 EvalKit Web Page"/>
-      <!--<book category="setup"     name="Documents\TLE9844-EvalBoard-UM-100-Infineon.pdf" title="Getting Started"/>-->
-      <book category="schematic" name="Documents\TLE984x_EVB_Rev14_UM_rev10.pdf" title="Schematics"/>
+      <!--<book category="setup"     name="Documents/TLE9844-EvalBoard-UM-100-Infineon.pdf" title="Getting Started"/>-->
+      <book category="schematic" name="Documents/TLE984x_EVB_Rev14_UM_rev10.pdf" title="Schematics"/>
       <mountedDevice    deviceIndex="0" Dvendor="Infineon:7" Dname="TLE9844QX"/>
       <compatibleDevice deviceIndex="0" Dvendor="Infineon:7" DsubFamily="TLE984x Series"/>
         <feature type="ODbg"      n="1"              name="On-board J-LINK Lite"/>
@@ -280,363 +318,461 @@
       <description>System Startup for Infineon TLE984x device series</description>
       <files>
          <!-- startup files -->
-        <file category="source"  name="Device\Source\ARM\startup_tle984x.s" attr="config" condition="TLE984x"   version="1.0"/>
+        <file category="source"  name="Device/Source/ARM/startup_tle984x.s" attr="config" condition="TLE984x"   version="1.0"/>
 
         <!-- system file -->
-        <file category="source"  name="Device\Source\system_tle984x.c"      attr="config" condition="TLE984x" version="1.1"/>
-        <file category="source"  name="Device\Source\tle_device.c"          attr="config" condition="TLE984x" version="1.0.3"/>
+        <file category="source"  name="Device/Source/system_tle984x.c"      attr="config" condition="TLE984x" version="1.1.1"/>
+        <file category="source"  name="Device/Source/tle_device.c"          attr="config" condition="TLE984x" version="1.0.3"/>
 
-        <file category="header"  name="Device\Include\system_tle984x.h"     attr="config" condition="TLE984x" version="0.2"/>
-        <file category="header"  name="Device\Include\types.h"              attr="config" condition="TLE984x" version="0.2.0"/>
-        <file category="header"  name="Device\Include\tle984x.h"            attr="config" condition="TLE984x" version="1.8"/>
-        <file category="header"  name="Device\Include\tle_device.h"         attr="config" condition="TLE984x" version="0.0.1"/>
-        <file category="header"  name="Device\SDK\cfgwiz\TLE9842QX\bsl_defines.h"   attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header"  name="Device\SDK\cfgwiz\TLE9842-2QX\bsl_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header"  name="Device\SDK\cfgwiz\TLE9843QX\bsl_defines.h"   attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header"  name="Device\SDK\cfgwiz\TLE9843-2QX\bsl_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header"  name="Device\SDK\cfgwiz\TLE9844QX\bsl_defines.h"   attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header"  name="Device\SDK\cfgwiz\TLE9844-2QX\bsl_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header"  name="Device\SDK\cfgwiz\TLE9845QX\bsl_defines.h"   attr="config" condition="TLE9845QX" version="1.2.1"/>
-
-        <file category="sourceC" name="Device\SDK\app\main.c"  attr="template" select="Simple Main" condition="TLE984x" version="1.1.2"/>
+        <file category="header"  name="Device/Include/system_tle984x.h"     attr="config" condition="TLE984x" version="1.1.1"/>
+        <file category="header"  name="Device/Include/types.h"              attr="config" condition="TLE984x" version="0.2.3"/>
+        <file category="header"  name="Device/Include/tle984x.h"            attr="config" condition="TLE984x" version="1.8"/>
+        <file category="header"  name="Device/Include/tle_device.h"         attr="config" condition="TLE984x" version="1.0.3"/>
+        <file category="header"  name="Device/Include/tle_variants.h"       attr="config" condition="TLE984x" version="0.1.0"/>
+        <file category="header"  name="Device/Include/sfr_access.h"         attr="config" condition="TLE984x" version="0.1.0"/>
+		
+        <file category="sourceC" name="Device/SDK/app/main.c"  attr="template" select="Simple Main" condition="TLE984x" version="1.1.2"/>
+        <file category="doc" name="Documents/html/index.html"/>
      </files>
     </component>
 
-    <component Cclass="Device" Cgroup="ConfigWizard" Cversion="1.8.7" condition="TLE984x">
-     <description>Infineon ConfigWizard Configuration File</description>
+    <component Cclass="Device" Cgroup="ConfigWizard" Cversion="1.8.7" condition="Only ConfigWizard">
+     <description>Infineon ConfigWizard Configuration File version 1.x</description>
      <files>
-        <file category="doc" name="Device\SDK\cfgwiz\TLE9842QX\config.icwp" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="doc" name="Device\SDK\cfgwiz\TLE9842-2QX\config.icwp" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="doc" name="Device\SDK\cfgwiz\TLE9843QX\config.icwp" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="doc" name="Device\SDK\cfgwiz\TLE9843-2QX\config.icwp" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="doc" name="Device\SDK\cfgwiz\TLE9844QX\config.icwp" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="doc" name="Device\SDK\cfgwiz\TLE9844-2QX\config.icwp" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="doc" name="Device\SDK\cfgwiz\TLE9845QX\config.icwp" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="doc" name="Device\SDK\cfgwiz\script\IFX_TLE984x.xml" attr="config" condition="TLE984x" version="1.2.1"/>
+		<file category="header"  name="Device/SDK/cfgwiz/TLE9842QX/v1/bsl_defines.h"   attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header"  name="Device/SDK/cfgwiz/TLE9842-2QX/v1/bsl_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header"  name="Device/SDK/cfgwiz/TLE9843QX/v1/bsl_defines.h"   attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header"  name="Device/SDK/cfgwiz/TLE9843-2QX/v1/bsl_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header"  name="Device/SDK/cfgwiz/TLE9844QX/v1/bsl_defines.h"   attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header"  name="Device/SDK/cfgwiz/TLE9844-2QX/v1/bsl_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header"  name="Device/SDK/cfgwiz/TLE9845QX/v1/bsl_defines.h"   attr="config" condition="TLE9845QX" version="1.2.1"/>
+        
+        <file category="doc" name="Device/SDK/cfgwiz/TLE9842QX/v1/config.icwp" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE9842-2QX/v1/config.icwp" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE9843QX/v1/config.icwp" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE9843-2QX/v1/config.icwp" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE9844QX/v1/config.icwp" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE9844-2QX/v1/config.icwp" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="doc" name="Device/SDK/cfgwiz/TLE9845QX/v1/config.icwp" attr="config" condition="TLE9845QX" version="1.2.1"/>
+        <file category="doc" name="Device/SDK/cfgwiz/script/v1/IFX_TLE984x.xml" attr="config" condition="TLE984x" version="1.2.4"/>
+		<file category="doc" name="SVD/TLE984x.svd" attr="config" condition="TLE984x" version="1.5.0"/>
+		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/v1/adc1_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/v1/adc1_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/v1/adc1_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/v1/adc1_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/v1/adc1_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/v1/adc1_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/v1/adc1_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/v1/mon_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/v1/mon_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/v1/mon_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/v1/mon_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/v1/mon_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/v1/mon_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/v1/mon_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		
+		<file category="header" name="Device/SDK/cfgwiz/common/ls_defines.h" attr="config" condition="TLE984x" version="1.2.1"/>		
+        <file category="header" name="Device/SDK/cfgwiz/common/int_defines.h" attr="config" condition="TLE984x" version="1.2.1"/>        		
+		<file category="header" name="Device/SDK/cfgwiz/common/isr_defines.h" attr="config" condition="TLE984x" version="1.2.1"/>        		
+		<file category="header" name="Device/SDK/cfgwiz/common/lin_defines.h" attr="config" condition="TLE984x" version="1.2.1"/>        		
+		<file category="header" name="Device/SDK/cfgwiz/common/port_defines.h" attr="config" condition="TLE984x" version="1.2.1"/>
+		<file category="header" name="Device/SDK/cfgwiz/common/pmu_defines.h" attr="config" condition="TLE984x" version="1.2.1"/>
+		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/hs_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/hs_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/hs_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/hs_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/hs_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/hs_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/hs_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/scu_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/scu_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/scu_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/scu_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/scu_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/scu_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/scu_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		        		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/adc2_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/adc2_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/adc2_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/adc2_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/adc2_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/adc2_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/adc2_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/ccu6_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/ccu6_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/ccu6_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/ccu6_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/ccu6_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/ccu6_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/ccu6_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/gpt12e_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/gpt12e_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/gpt12e_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/gpt12e_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/gpt12e_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/gpt12e_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/gpt12e_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		        		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/ssc_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/ssc_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/ssc_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/ssc_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/ssc_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/ssc_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/ssc_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/timer2x_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/timer2x_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/timer2x_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/timer2x_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/timer2x_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/timer2x_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/timer2x_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		
+		<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/uart_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/uart_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843QX/uart_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/uart_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844QX/uart_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/uart_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+        <file category="header" name="Device/SDK/cfgwiz/TLE9845QX/uart_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
      </files>
+     <RTE_Components_h>
+		#define CONFIGWIZARD 1
+     </RTE_Components_h>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cversion="0.3.2" condition="TLE984x CMSIS Device">
+	<component Cclass="Device" Cgroup="ConfigWizard_v2" Cversion="2" condition="Only ConfigWizard_v2">
+		<description>Infineon ConfigWizard Configuration File version 2.x</description>
+		<files>
+			<file category="header"  name="Device/SDK/cfgwiz/TLE9842QX/v2/bsl_defines.h"   attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header"  name="Device/SDK/cfgwiz/TLE9842-2QX/v2/bsl_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header"  name="Device/SDK/cfgwiz/TLE9843QX/v2/bsl_defines.h"   attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header"  name="Device/SDK/cfgwiz/TLE9843-2QX/v2/bsl_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header"  name="Device/SDK/cfgwiz/TLE9844QX/v2/bsl_defines.h"   attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header"  name="Device/SDK/cfgwiz/TLE9844-2QX/v2/bsl_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header"  name="Device/SDK/cfgwiz/TLE9845QX/v2/bsl_defines.h"   attr="config" condition="TLE9845QX" version="1.2.1"/>
+		
+			<file category="doc" name="Device/SDK/cfgwiz/TLE9842QX/v2/config.icwp" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="doc" name="Device/SDK/cfgwiz/TLE9842-2QX/v2/config.icwp" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="doc" name="Device/SDK/cfgwiz/TLE9843QX/v2/config.icwp" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="doc" name="Device/SDK/cfgwiz/TLE9843-2QX/v2/config.icwp" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="doc" name="Device/SDK/cfgwiz/TLE9844QX/v2/config.icwp" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="doc" name="Device/SDK/cfgwiz/TLE9844-2QX/v2/config.icwp" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="doc" name="Device/SDK/cfgwiz/TLE9845QX/v2/config.icwp" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			<file category="doc" name="Device/SDK/cfgwiz/script/v2/IFX_TLE984x.xml" 	attr="config" 						version="2.0.2"/>
+			<file category="doc" name="Device/SDK/cfgwiz/script/v2/TLE984x.mig"     	attr="config" 						version="2.0.1"/>
+			<file category="doc" name="SVD/TLE984x.svd" attr="config" 													version="1.5.0"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/v2/adc1_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/v2/adc1_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/v2/adc1_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/v2/adc1_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/v2/adc1_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/v2/adc1_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/v2/adc1_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/v2/mon_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/v2/mon_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/v2/mon_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/v2/mon_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/v2/mon_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/v2/mon_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/v2/mon_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/common/pmu_defines.h" attr="config" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/common/int_defines.h" attr="config" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/common/isr_defines.h" attr="config" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/common/lin_defines.h" attr="config" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/common/port_defines.h" attr="config" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/common/ls_defines.h" attr="config" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/hs_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/hs_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/hs_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/hs_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/hs_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/hs_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/hs_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/scu_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/scu_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/scu_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/scu_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/scu_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/scu_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/scu_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/adc2_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/adc2_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/adc2_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/adc2_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/adc2_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/adc2_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/adc2_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/ccu6_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/ccu6_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/ccu6_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/ccu6_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/ccu6_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/ccu6_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/ccu6_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/gpt12e_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/gpt12e_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/gpt12e_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/gpt12e_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/gpt12e_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/gpt12e_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/gpt12e_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/ssc_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/ssc_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/ssc_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/ssc_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/ssc_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/ssc_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/ssc_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/timer2x_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/timer2x_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/timer2x_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/timer2x_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/timer2x_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/timer2x_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/timer2x_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+			
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842QX/uart_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9842-2QX/uart_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843QX/uart_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9843-2QX/uart_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844QX/uart_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9844-2QX/uart_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
+			<file category="header" name="Device/SDK/cfgwiz/TLE9845QX/uart_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
+		</files>
+        <RTE_Components_h>
+          #define CONFIGWIZARD 2
+        </RTE_Components_h>
+    </component>
+
+    <component Cclass="Device" Cgroup="SDK" Csub="SCU" Cversion="0.3.5" condition="TLE984x CMSIS Device">
       <description>System Control Unit (SCU) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_SCU
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\scu_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\scu_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\scu_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\scu_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\scu_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\scu_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\scu_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\scu.h" version="0.3.2"/>
-        <file category="source" attr="config" name="Device\SDK\src\scu.c" version="0.3.2"/>
+        <file category="header" attr="config" name="Device/SDK/inc/scu.h" version="0.3.5"/>
+        <file category="source" attr="config" name="Device/SDK/src/scu.c" version="0.3.5"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cversion="1.5.0" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="BOOTROM" Cversion="1.5.2" condition="TLE984x CMSIS Device">
       <description>BootROM driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_BROM
       </RTE_Components_h>
       <files>
-        <file category="header" attr="config" name="Device\SDK\inc\bootrom.h" version="1.5.0"/>
-        <file category="source" attr="config" name="Device\SDK\src\bootrom.c" version="1.5.0"/>
+        <file category="header" attr="config" name="Device/SDK/inc/bootrom.h" version="1.5.2"/>
+        <file category="source" attr="config" name="Device/SDK/src/bootrom.c" version="1.5.2"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cversion="0.2.5" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="WDT1" Cversion="0.2.8" condition="TLE984x CMSIS Device">
       <description>Watchdog 1 (WDT1) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_WDT1
       </RTE_Components_h>
       <files>
-        <file category="header" attr="config" name="Device\SDK\inc\wdt1.h" version="0.2.5"/>
-        <file category="source" attr="config" name="Device\SDK\src\wdt1.c" version="0.2.5"/>
+        <file category="header" attr="config" name="Device/SDK/inc/wdt1.h" version="0.2.8"/>
+        <file category="source" attr="config" name="Device/SDK/src/wdt1.c" version="0.2.8"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="PMU" Cversion="0.1.3" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="PMU" Cversion="0.1.5" condition="TLE984x CMSIS Device">
       <description>Power Management Unit (SCU) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_PMU
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\pmu_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\pmu_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\pmu_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\pmu_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\pmu_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\pmu_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\pmu_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\pmu.h" version="0.1.3"/>
-        <file category="source" attr="config" name="Device\SDK\src\pmu.c" version="0.1.3"/>
+        <file category="header" attr="config" name="Device/SDK/inc/pmu.h" version="0.1.5"/>
+        <file category="source" attr="config" name="Device/SDK/src/pmu.c" version="0.1.5"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cversion="0.1.7" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="ADC1" Cversion="0.1.9" condition="TLE984x CMSIS Device">
       <description>Analog Digital Converter 1 (ADC1) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_ADC1
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\adc1_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\adc1_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\adc1_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\adc1_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\adc1_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\adc1_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\adc1_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\adc1.h" version="0.1.7"/>
-        <file category="source" attr="config" name="Device\SDK\src\adc1.c" version="0.1.7"/>
+        <file category="header" attr="config" name="Device/SDK/inc/adc1.h" version="0.1.9"/>
+        <file category="source" attr="config" name="Device/SDK/src/adc1.c" version="0.1.9"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cversion="0.1.6" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="ADC2" Cversion="0.1.8" condition="TLE984x CMSIS Device">
       <description>Analog Digital Converter 2 (ADC2) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_ADC2
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\adc2_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\adc2_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\adc2_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\adc2_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\adc2_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\adc2_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\adc2_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\adc2.h" version="0.1.6"/>
-        <file category="source" attr="config" name="Device\SDK\src\adc2.c" version="0.1.6"/>
+        <file category="header" attr="config" name="Device/SDK/inc/adc2.h" version="0.1.8"/>
+        <file category="source" attr="config" name="Device/SDK/src/adc2.c" version="0.1.8"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cversion="0.2.3" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="CCU6" Cversion="0.2.5" condition="TLE984x CMSIS Device">
       <description>Capture Compare Unit (CCU6) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_CCU6
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\ccu6_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\ccu6_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\ccu6_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\ccu6_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\ccu6_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\ccu6_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\ccu6_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\ccu6.h" version="0.2.3"/>
-        <file category="source" attr="config" name="Device\SDK\src\ccu6.c" version="0.2.3"/>
+        <file category="header" attr="config" name="Device/SDK/inc/ccu6.h" version="0.2.5"/>
+        <file category="source" attr="config" name="Device/SDK/src/ccu6.c" version="0.2.5"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="HS" Cversion="0.1.7" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="HS" Cversion="0.1.9" condition="TLE984x CMSIS Device">
       <description>High Side driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_HS
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\hs_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\hs_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\hs_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\hs_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\hs_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\hs_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\hs_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\hs.h" version="0.1.7"/>
-        <file category="source" attr="config" name="Device\SDK\src\hs.c" version="0.1.7"/>
+        <file category="header" attr="config" name="Device/SDK/inc/hs.h" version="0.1.9"/>
+        <file category="source" attr="config" name="Device/SDK/src/hs.c" version="0.1.9"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="LS" Cversion="0.1.4" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="LS" Cversion="0.1.6" condition="TLE984x CMSIS Device">
       <description>Low Side driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_LS
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\ls_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\ls_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\ls_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\ls_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\ls_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\ls_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\ls_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\ls.h" version="0.1.4"/>
-        <file category="source" attr="config" name="Device\SDK\src\ls.c" version="0.1.4"/>
+        <file category="header" attr="config" name="Device/SDK/inc/ls.h" version="0.1.6"/>
+        <file category="source" attr="config" name="Device/SDK/src/ls.c" version="0.1.6"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cversion="0.1.4" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="GPT12E" Cversion="0.1.6" condition="TLE984x CMSIS Device">
       <description>General Purpose Timer 12E (GPT12E) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_GPT12E
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\gpt12e_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\gpt12e_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\gpt12e_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\gpt12e_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\gpt12e_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\gpt12e_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\gpt12e_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\gpt12e.h" version="0.1.4"/>
-        <file category="source" attr="config" name="Device\SDK\src\gpt12e.c" version="0.1.4"/>
+        <file category="header" attr="config" name="Device/SDK/inc/gpt12e.h" version="0.1.6"/>
+        <file category="source" attr="config" name="Device/SDK/src/gpt12e.c" version="0.1.6"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="INT" Cversion="0.1.4" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="INT" Cversion="0.1.6" condition="TLE984x CMSIS Device">
       <description>Interrupt (INT) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_INT
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\int_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\int_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\int_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\int_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\int_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\int_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\int_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\int.h" version="0.1.4"/>
-        <file category="source" attr="config" name="Device\SDK\src\int.c" version="0.1.4"/>
+        <file category="header" attr="config" name="Device/SDK/inc/int.h" version="0.1.6"/>
+        <file category="source" attr="config" name="Device/SDK/src/int.c" version="0.1.6"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cversion="0.1.8" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="ISR" Cversion="0.2.1" condition="TLE984x CMSIS Device">
       <description>Interrupt Service Routines (ISR) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_ISR
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\isr_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\isr_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\isr_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\isr_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\isr_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\isr_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\isr_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\isr.h" version="0.1.8"/>
-        <file category="source" attr="config" name="Device\SDK\src\isr.c" version="0.1.8"/>
+        <file category="header" attr="config" name="Device/SDK/inc/isr.h" version="0.2.1"/>
+        <file category="source" attr="config" name="Device/SDK/src/isr.c" version="0.2.1"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="LIN" Cversion="0.1.4" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="LIN" Cversion="0.1.6" condition="TLE984x CMSIS Device">
       <description>LIN Tranceiver (LIN) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_LIN
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\lin_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\lin_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\lin_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\lin_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\lin_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\lin_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\lin_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\lin.h" version="0.1.4"/>
-        <file category="source" attr="config" name="Device\SDK\src\lin.c" version="0.1.4"/>
+        <file category="header" attr="config" name="Device/SDK/inc/lin.h" version="0.1.6"/>
+        <file category="source" attr="config" name="Device/SDK/src/lin.c" version="0.1.6"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="MON" Cversion="0.1.6" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="MON" Cversion="0.1.8" condition="TLE984x CMSIS Device">
       <description>High Voltage Monitor Input (MON) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_MON
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\mon_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\mon_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\mon_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\mon_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\mon_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\mon_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\mon_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\mon.h" version="0.1.6"/>
-        <file category="source" attr="config" name="Device\SDK\src\mon.c" version="0.1.6"/>
+        <file category="header" attr="config" name="Device/SDK/inc/mon.h" version="0.1.8"/>
+        <file category="source" attr="config" name="Device/SDK/src/mon.c" version="0.1.8"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cversion="0.6.0" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="PORT" Cversion="0.6.3" condition="TLE984x CMSIS Device">
       <description>GPIO Ports (PORT) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_PORT
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\port_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\port_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\port_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\port_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\port_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\port_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\port_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\port.h" version="0.6.0"/>
-        <file category="source" attr="config" name="Device\SDK\src\port.c" version="0.6.0"/>
+        <file category="header" attr="config" name="Device/SDK/inc/port.h" version="0.6.3"/>
+        <file category="source" attr="config" name="Device/SDK/src/port.c" version="0.6.3"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cversion="0.1.3" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="SSC" Cversion="0.1.5" condition="TLE984x CMSIS Device">
       <description>High Speed Synchronous Serial Interface 1 and 2 (SSC) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_SSC
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\ssc_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\ssc_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\ssc_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\ssc_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\ssc_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\ssc_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\ssc_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\ssc.h" version="0.1.3"/>
-        <file category="source" attr="config" name="Device\SDK\src\ssc.c" version="0.1.3"/>
+        <file category="header" attr="config" name="Device/SDK/inc/ssc.h" version="0.1.5"/>
+        <file category="source" attr="config" name="Device/SDK/src/ssc.c" version="0.1.5"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x" Cversion="0.1.3" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x" Cversion="0.1.5" condition="TLE984x CMSIS Device">
       <description>Timer2 and Timer21 (TIMER2x) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_TIMER2X
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\timer2x_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\timer2x_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\timer2x_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\timer2x_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\timer2x_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\timer2x_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\timer2x_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\timer2x.h" version="0.1.3"/>
-        <file category="source" attr="config" name="Device\SDK\src\timer2x.c" version="0.1.3"/>
+        <file category="header" attr="config" name="Device/SDK/inc/timer2x.h" version="0.1.5"/>
+        <file category="source" attr="config" name="Device/SDK/src/timer2x.c" version="0.1.5"/>
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="SDK" Csub="UART" Cversion="0.1.4" condition="TLE984x CMSIS Device">
+    <component Cclass="Device" Cgroup="SDK" Csub="UART" Cversion="0.1.7" condition="TLE984x CMSIS Device">
       <description>UART1 and UART2 (UART) driver for TLE984x</description>
       <RTE_Components_h>
         #define RTE_DEVICE_SDK_UART
       </RTE_Components_h>
       <files>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842QX\uart_defines.h" attr="config" condition="TLE9842QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9842-2QX\uart_defines.h" attr="config" condition="TLE9842-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843QX\uart_defines.h" attr="config" condition="TLE9843QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9843-2QX\uart_defines.h" attr="config" condition="TLE9843-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844QX\uart_defines.h" attr="config" condition="TLE9844QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9844-2QX\uart_defines.h" attr="config" condition="TLE9844-2QX" version="1.2.1"/>
-        <file category="header" name="Device\SDK\cfgwiz\TLE9845QX\uart_defines.h" attr="config" condition="TLE9845QX" version="1.2.1"/>
-        <file category="header" attr="config" name="Device\SDK\inc\uart.h" version="0.1.4"/>
-        <file category="source" attr="config" name="Device\SDK\src\uart.c" version="0.1.4"/>
+        <file category="header" attr="config" name="Device/SDK/inc/uart.h" version="0.1.7"/>
+        <file category="source" attr="config" name="Device/SDK/src/uart.c" version="0.1.7"/>
       </files>
     </component>
   </components>
   
   <examples>
-    <example name="PMU_PowerSaving_SleepMode" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\PowerSaving_SleepMode\">
+    <example name="PMU_POWERSAVING_SLEEPMODE" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/PMU_POWERSAVING_SLEEPMODE_EXAMPLE_TLE984x/">
       <description>Power Saving Modes - Sleep Mode</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="PowerSaving_SleepMode.uvprojx"/>
+        <environment name="uv" load="PMU_POWERSAVING_SLEEPMODE.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
         <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
@@ -650,15 +786,16 @@
       </attributes>
     </example>
 
-    <example name="Blinky" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\Blinky\">
+    <example name="BLINKY" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/BLINKY_EXAMPLE_TLE984x/">
       <description>Blinky - blinks LED1</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="Blinky.uvprojx"/>
+        <environment name="uv" load="BLINKY.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
@@ -671,15 +808,16 @@
       </attributes>
     </example>
 
-    <example name="PMU_PowerSaving_StopMode" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\PowerSaving_StopMode\">
+    <example name="PMU_POWERSAVING_STOPMODE" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/PMU_POWERSAVING_STOPMODE_EXAMPLE_TLE984x/">
       <description>Power Saving Modes - Stop Mode</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="PowerSaving_StopMode.uvprojx"/>
+        <environment name="uv" load="PMU_POWERSAVING_STOPMODE.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
         <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
@@ -693,15 +831,16 @@
       </attributes>
     </example>
 
-    <example name="PMU_PowerSaving_SleepMode_CyclicWake" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\PowerSaving_SleepMode_CyclicWake\">
+    <example name="PMU_POWERSAVING_SLEEPMODE_CYCLICWAKE" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/PMU_POWERSAVING_SLEEPMODE_CYCLICWAKE_EXAMPLE_TLE984x/">
       <description>Power Saving Modes - Sleep Mode with cyclic wake</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="PowerSaving_SleepMode_CyclicWake.uvprojx"/>
+        <environment name="uv" load="PMU_POWERSAVING_SLEEPMODE_CYCLICWAKE.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
         <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
@@ -715,15 +854,16 @@
       </attributes>
     </example>
 
-    <example name="PMU_ResetStatus" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\ResetStatus\">
+    <example name="PMU_RESET_STATUS" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/PMU_RESET_STATUS_EXAMPLE_TLE984x/">
       <description>Reset Status Evaluation</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ResetStatus.uvprojx"/>
+        <environment name="uv" load="PMU_RESET_STATUS.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
         <component Cclass="Device" Cgroup="SDK" Csub="PMU"/>
@@ -737,15 +877,16 @@
       </attributes>
     </example>
 
-    <example name="PMU_VDDEXT" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\VDDEXT\">
+    <example name="PMU_VDDEXT" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/PMU_VDDEXT_EXAMPLE_TLE984x/">
       <description>VDDEXT handling</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="VDDEXT.uvprojx"/>
+        <environment name="uv" load="PMU_VDDEXT.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -759,15 +900,16 @@
       </attributes>
     </example>
 
-    <example name="SCU_PLL" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\PLL\">
+    <example name="SCU_PLL" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/SCU_PLL_EXAMPLE_TLE984x/">
       <description>PLL adjustment</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="PLL.uvprojx"/>
+        <environment name="uv" load="SCU_PLL.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
@@ -780,15 +922,16 @@
       </attributes>
     </example>
 
-    <example name="SCU_PLL_XTAL" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\PLL_XTAL\">
+    <example name="SCU_PLL_XTAL" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/SCU_PLL_XTAL_EXAMPLE_TLE984x/">
       <description>PLL with external XTAL</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="PLL_XTAL.uvprojx"/>
+        <environment name="uv" load="SCU_PLL_XTAL.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
@@ -800,15 +943,16 @@
       </attributes>
     </example>
 
-    <example name="NVM Prog" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\NVM_PROG\">
+    <example name="NVM_PROGRAMMING" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/NVM_PROGRAMMING_EXAMPLE_TLE984x/">
       <description>NVM Page Programming</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="NVM_PROG.uvprojx"/>
+        <environment name="uv" load="NVM_PROGRAMMING.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -820,15 +964,16 @@
       </attributes>
     </example>
 
-    <example name="NVM_Prog_RAM_BRANCH" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\RAM_BRANCH\">
+    <example name="NVM_RAM_BRANCH" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/NVM_RAM_BRANCH_EXAMPLE_TLE984x/">
       <description>NVM Programming with RAM Branch</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="RAM_BRANCH.uvprojx"/>
+        <environment name="uv" load="NVM_RAM_BRANCH.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -840,15 +985,16 @@
       </attributes>
     </example>
 
-    <example name="NVM_Protection" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\PROTECTION\">
+    <example name="NVM_PROTECTION" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/NVM_PROTECTION_EXAMPLE_TLE984x/">
       <description>Flash Page Write Protection</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="PROTECTION.uvprojx"/>
+        <environment name="uv" load="NVM_PROTECTION.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -860,7 +1006,7 @@
       </attributes>
     </example>
 
-    <example name="ADC2_VS" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\ADC2_VS\">
+    <example name="ADC2_VS" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/ADC2_VS_EXAMPLE_TLE984x/">
       <description>ADC2 VS Measurement</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -869,6 +1015,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -882,7 +1029,7 @@
       </attributes>
     </example>
 
-    <example name="ADC1_POTI_SEQ" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\ADC1_POTI_SEQ\">
+    <example name="ADC1_POTI_SEQ" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/ADC1_POTI_SEQ_EXAMPLE_TLE984x/">
       <description>ADC1 in Sequencer Mode reading in the Poti at Channel 4</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -891,6 +1038,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -903,7 +1051,7 @@
       </attributes>
     </example>
 
-    <example name="ADC1_POTI_EIM" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\ADC1_POTI_EIM\">
+    <example name="ADC1_POTI_EIM" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/ADC1_POTI_EIM_EXAMPLE_TLE984x/">
       <description>ADC1 with Exceptional Interrupt Mode reading in the Poti at Channel 4</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -912,6 +1060,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
@@ -925,7 +1074,7 @@
       </attributes>
     </example>
 
-    <example name="ADC1_POTI_ESM" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\ADC1_POTI_ESM\">
+    <example name="ADC1_POTI_ESM" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/ADC1_POTI_ESM_EXAMPLE_TLE984x/">
       <description>ADC1 with Exceptional Sequencer Mode reading in the Poti at Channel 4</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -934,6 +1083,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="CCU6"/>
@@ -948,7 +1098,7 @@
       </attributes>
     </example>
 
-    <example name="TIMER2_BLINK" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\TIMER2_BLINK\">
+    <example name="TIMER2_BLINK" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/TIMER2_BLINK_EXAMPLE_TLE984x/">
       <description>TIMER2 Blinking</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -957,6 +1107,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -969,7 +1120,7 @@
       </attributes>
     </example>
     
-    <example name="TIMER2_PWM_CAPTURE" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\TIMER2_PWM_CAPTURE\">
+    <example name="TIMER2_PWM_CAPTURE" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/TIMER2_PWM_CAPTURE_EXAMPLE_TLE984x/">
       <description>TIMER2 PWM Duty Cycle and Period Measurement</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -978,6 +1129,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -990,7 +1142,7 @@
       </attributes>
     </example>
     
-    <example name="GPT12E_T3_RELOAD" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\GPT12E_T3_RELOAD\">
+    <example name="GPT12E_T3_RELOAD" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/GPT12E_T3_RELOAD_EXAMPLE_TLE984x/">
       <description>GPT12E Timer3 reloaded by Timer2</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -999,6 +1151,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -1011,7 +1164,7 @@
       </attributes>
     </example>
 
-    <example name="GPT12E_T3_CONCAT" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\GPT12E_T3_CONCAT\">
+    <example name="GPT12E_T3_CONCAT" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/GPT12E_T3_CONCAT_EXAMPLE_TLE984x/">
       <description>Timer2 and Timer3 as 32bit Timer</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -1020,6 +1173,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -1032,7 +1186,7 @@
       </attributes>
     </example>
 
-    <example name="UART1_SEND" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\UART1_SEND\">
+    <example name="UART1_SEND" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/UART1_SEND_EXAMPLE_TLE984x/">
       <description>UART1 sends data over LIN Transceiver</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -1041,6 +1195,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -1054,7 +1209,7 @@
       </attributes>
     </example>
 
-    <example name="SSC1_SEND" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\SSC1_SEND\">
+    <example name="SSC1_SEND" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/SSC1_SEND_EXAMPLE_TLE984x/">
       <description>SSC1 sends data as SPI Master</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -1063,6 +1218,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -1077,7 +1233,7 @@
       </attributes>
     </example>
 
-    <example name="SSC1_2_SSC2" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\SSC1_2_SSC2\">
+    <example name="SSC1_2_SSC2" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/SSC1_2_SSC2_EXAMPLE_TLE984x/">
       <description>SSC1 sends to SSC2</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -1086,6 +1242,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -1098,7 +1255,7 @@
       </attributes>
     </example>
 
-    <example name="CCU6_PWM" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\CCU6_PWM\">
+    <example name="CCU6_PWM" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/CCU6_PWM_EXAMPLE_TLE984x/">
       <description>CCU6 generates PWM signals</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -1107,6 +1264,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -1119,7 +1277,7 @@
       </attributes>
     </example>
 
-    <example name="CCU6_ADC1" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\CCU6_ADC1\">
+    <example name="CCU6_ADC1" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/CCU6_ADC1_EXAMPLE_TLE984x/">
       <description>PWM synchroneous ADC measurement, the Poti at Channel 4 adjusts the PWM</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -1128,6 +1286,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ADC1"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
@@ -1141,7 +1300,7 @@
       </attributes>
     </example>
 
-    <example name="UART2_TTY" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\UART2_TTY\">
+    <example name="UART2_TTY" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/UART2_TTY_EXAMPLE_TLE984x/">
       <description>UART2 sends printf messages</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
@@ -1150,6 +1309,7 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
@@ -1162,16 +1322,19 @@
       </attributes>
     </example>
 
-    <example name="LIN Slave" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\LIN_Slave\">
+    <example name="LIN_SLAVE" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/LIN_SLAVE_EXAMPLE_TLE984x/">
       <description>running the IHR LIN LLD in a LIN Slave configuration</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="LIN_Slave.uvprojx"/>
+        <environment name="uv" load="LIN_SLAVE.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LS"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
         <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
@@ -1185,20 +1348,23 @@
       </attributes>
     </example>
 
-    <example name="LIN Master" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\LIN_Master\">
+    <example name="LIN_MASTER" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/LIN_MASTER_EXAMPLE_TLE984x/">
       <description>running the IHR LIN LLD in a LIN Master configuration</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="LIN_Master.uvprojx"/>
+        <environment name="uv" load="LIN_MASTER.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
         <component Cclass="Device" Cgroup="SDK" Csub="LIN"/>
         <component Cclass="Device" Cgroup="SDK" Csub="TIMER2x"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="MON"/>
+        <component Cclass="Device" Cgroup="SDK" Csub="LS"/>
         <component Cclass="Device" Cgroup="SDK" Csub="WDT1"/>
         <component Cclass="Device" Cgroup="SDK" Csub="PORT"/>
         <component Cclass="Device" Cgroup="SDK" Csub="UART"/>
@@ -1209,15 +1375,16 @@
       </attributes>
     </example>
 
-    <example name="Relais" doc="Abstract.txt" folder="Boards\Infineon\TLE984x_EvalBoard\Relais_Example\">
+    <example name="LS_RELAIS" doc="Abstract.txt" folder="Boards/Infineon/TLE984x_EvalBoard/LS_RELAIS_EXAMPLE_TLE984x/">
       <description>switches HS and LS with MONx buttons</description>
       <board name="TLE984x Eval.Board Rev1.4" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="Relais_Example.uvprojx"/>
+        <environment name="uv" load="LS_RELAIS.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="Device" Cgroup="Startup"/>
+		<component Cclass="Device" Cgroup="ConfigWizard_v2"/>
         <component Cclass="Device" Cgroup="SDK" Csub="SCU"/>
         <component Cclass="Device" Cgroup="SDK" Csub="ISR"/>
         <component Cclass="Device" Cgroup="SDK" Csub="INT"/>
