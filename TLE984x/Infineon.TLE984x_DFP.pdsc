@@ -9,7 +9,7 @@
   <supportContact>http://www.infineon.com/cms/en/corporate/company/contact/support/index.html</supportContact>
   
     <releases>
-		<release version="1.1.2">
+		<release version="1.2.0">
           Compatibility with both versions of ConfigWizard added
 		  SDK is MISRA 2012 compliant
 		  renamed ADC1_CHX_ESM to ADC1_CHx_ESM,
@@ -449,7 +449,7 @@
      </RTE_Components_h>
     </component>
 
-	<component Cclass="Device" Cgroup="ConfigWizard_v2" Cversion="2" condition="Only ConfigWizard_v2">
+	<component Cclass="Device" Cgroup="ConfigWizard_v2" Cversion="2.1.12" condition="Only ConfigWizard_v2">
 		<description>Infineon ConfigWizard Configuration File version 2.x</description>
 		<files>
 			<file category="header"  name="Device/SDK/cfgwiz/TLE9842QX/v2/bsl_defines.h"   attr="config" condition="TLE9842QX" version="1.2.1"/>
