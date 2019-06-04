@@ -3,22 +3,30 @@
 <package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
   <license>License/CMSIS_END_USER_LICENSE_AGREEMENT.txt</license> 
   <vendor>Infineon</vendor>
-  <url>https://github.com/Infineon/cmsis_packs/raw/master/XMC4000/</url>
+  <url>http://dave.infineon.com/Libraries/CMSIS_PACK/</url>
   <name>XMC4000_DFP</name>
   <description>
       Infineon XMC4000 Series Device Support, Drivers and Examples
-      Note: The new PACK download address is https://github.com/Infineon/cmsis_packs 
+      Note: The new PACK download address is http://dave.infineon.com/Libraries/CMSIS_PACK/  
   </description>
   <supportContact>http://www.infineon.com/cms/en/corporate/company/contact/support/index.html</supportContact> 
   
   <releases>
+    <release version="2.12.0" date="2019-06-04">
+      Update of XMC Lib to v2.1.22
+      Updated documentation
+      Fix variable location of SystemCoreClock, g_hrpwm_char_data and g_chipid for ARMCC compiler
+      Added XMC4800 IoT Connectivity Kit
+      Fixed flash programming algorithms to avoid last page garbage from last programming
+      Upgraded CMSIS-RTOS RTX IFX implementation to v4.82
+    </release>      
     <release version="2.11.0" date="2018-10-22">
       Update of XMC Lib to v2.1.20
       Remove CMSIS RTOS dependency of CMSIS ETH_MAC Driver
       Fixes issues in SPI and UART drivers 
     </release>      
     <release version="2.10.0" date="2017-12-20">
-      Updated XMCLib to v2.1.18
+      Updated XMCLib to v2.1.22
       Improved CMSIS drivers compatibility with ARM v6 compiler
       Update system_4xxx.c to disable the FPU if not used
       Fixes for SPI and I2C CMSIS drivers      
@@ -171,6 +179,7 @@
       <feature type="RTC"           n="1"/>
       <feature type="WDT"           n="1"/>
       <feature type="DAC"           n="2"   m="12"/>
+      <feature type="NVIC"          n="112"                          name="NVIC"/>
 
       <!-- ************************  Subfamily 'XMC4100'  **************************** -->
       <subFamily DsubFamily="XMC4100 Series">
@@ -189,8 +198,8 @@
         <algorithm  name="Flash/XMC4200_4100_128.FLM" start="0x0C000000" size="0x20000"                 default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_128.FLM" start="0x08000000" size="0x20000"                default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4100 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf" title="XMC4100 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"  title="XMC4100 Series Errata Sheet"/>
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf" title="XMC4100 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"  title="XMC4100 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="ADC"           n="10"       m="12"/>
         <feature type="CAN"           n="2"/>
@@ -211,8 +220,8 @@
         <algorithm  name="Flash/XMC4200_4100_128.FLM" start="0x0C000000" size="0x20000"                 default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_128.FLM" start="0x08000000" size="0x20000"                default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4100 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf"       title="XMC4100 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf"       title="XMC4100 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="ADC"           n="9"       m="12"/>
         <feature type="CAN"           n="2"/>
@@ -233,8 +242,8 @@
         <algorithm  name="Flash/XMC4200_4100_64.FLM" start="0x0C000000" size="0x10000"                  default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_64.FLM" start="0x08000000" size="0x10000"                 default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4100 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf"       title="XMC4100 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf"       title="XMC4100 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>   
         <feature type="ADC"           n="10"       m="12"/>
         <feature type="IOs"           n="35"/>
@@ -253,8 +262,8 @@
         <algorithm  name="Flash/XMC4200_4100_64.FLM" start="0x0C000000" size="0x10000"                  default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_64.FLM" start="0x08000000" size="0x10000"                 default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4100 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf"       title="XMC4100 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf"       title="XMC4100 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>  
         <feature type="ADC"           n="9"       m="12"/>
         <feature type="IOs"           n="21"/>
@@ -273,8 +282,8 @@
         <algorithm  name="Flash/XMC4200_4100_128.FLM" start="0x0C000000" size="0x20000"                 default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_128.FLM" start="0x08000000" size="0x20000"                default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4100 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf"       title="XMC4100 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf"       title="XMC4100 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="10"       m="12"/>
         <feature type="IOs"           n="35"/>
@@ -293,8 +302,8 @@
         <algorithm  name="Flash/XMC4200_4100_128.FLM" start="0x0C000000" size="0x20000"                 default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_128.FLM" start="0x08000000" size="0x20000"                default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4100 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf"       title="XMC4100 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>       
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf"       title="XMC4100 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>       
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>  
         <feature type="ADC"           n="9"       m="12"/>
         <feature type="IOs"           n="21"/>
@@ -313,8 +322,8 @@
         <algorithm  name="Flash/XMC4200_4100_64.FLM" start="0x0C000000" size="0x10000"                  default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_64.FLM" start="0x08000000" size="0x10000"                 default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4100 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf"       title="XMC4100 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf"       title="XMC4100 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>  
         <feature type="ADC"           n="10"       m="12"/>
         <feature type="CAN"           n="1"/>
@@ -334,8 +343,8 @@
         <algorithm  name="Flash/XMC4200_4100_64.FLM" start="0x0C000000" size="0x10000"                  default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_64.FLM" start="0x08000000" size="0x10000"                 default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4100 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf"       title="XMC4100 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf"       title="XMC4100 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4100 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/> 
         <feature type="ADC"           n="9"       m="12"/>
         <feature type="CAN"           n="1"/>
@@ -364,8 +373,8 @@
         <algorithm  name="Flash/XMC4200_4100_256.FLM" start="0x0C000000" size="0x40000"                 default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_256.FLM" start="0x08000000" size="0x40000"                default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4200 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf"       title="XMC4200 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4200 Series Errata Sheet"/>
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf"       title="XMC4200 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4200 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="10"      m="12"/>
         <feature type="IOs"           n="35"/>
@@ -384,8 +393,8 @@
         <algorithm  name="Flash/XMC4200_4100_256.FLM" start="0x0C000000" size="0x40000"                 default="1"/>
         <algorithm  name="Flash/XMC4200_4100c_256.FLM" start="0x08000000" size="0x40000"                default="1"/>
         <book    name="Documents/Infineon-xmc4100_xmc4200_rm_v1.6_2016-UM-v01_06-EN.pdf"       title="XMC4200 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200-DS-v01_03-EN.pdf"       title="XMC4200 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4100_XMC4200_AB_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4200 Series Errata Sheet"/>
+        <book    name="Documents/xmc4100_xmc4200_ds_v1.4_2018_09.pdf"       title="XMC4200 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4100_XMC4200_BA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4200 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>  
         <feature type="ADC"           n="9"      m="12"/>
         <feature type="IOs"           n="21"/>
@@ -414,7 +423,9 @@
         <algorithm  name="Flash/XMC4300_256.FLM"   start="0x0C000000"  size="0x40000"                  default="1"/>
         <algorithm  name="Flash/XMC4300c_256.FLM"  start="0x08000000"  size="0x40000"                  default="1"/>      
         <book    name="Documents/Infineon-XMC4300_ReferenceManual_v1.1.pdf-UM-v01_01-EN.pdf" title="XMC4300 Series Reference Manual"/>
-        <book    name="Documents/xmc4300_ds_v1.0_2016-02.pdf"     title="XMC4300 Series Data Sheet"/>       
+        <book    name="Documents/xmc4300_ds_v1.1_2018-09.pdf"     title="XMC4300 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4300_AA_Errata_Sheet-ES-v01_03-EN.pdf"          title="XMC4300 Series Errata Sheet"/>       
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>          
         <feature type="ADC"           n="24"      m="12"/>
       </device>       
       </subFamily>    
@@ -438,8 +449,8 @@
         <algorithm  name="Flash/XMC4400_512.FLM"    start="0x0C000000"  size="0x80000"                  default="1"/>
         <algorithm  name="Flash/XMC4400c_512.FLM"   start="0x08000000"  size="0x80000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4400_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4400 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4400-DS-v01_02-EN.pdf"               title="XMC4400 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4400_AB_Errata_Sheet-ES-v01_04-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
+        <book    name="Documents/xmc4400_ds_v1.3_2018_09.pdf"               title="XMC4400 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4400_BA_Errata_Sheet-ES-v01_02-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="ETH" n="1" m="100000000"/>
         <feature type="ADC"           n="24"      m="12"/>
@@ -459,8 +470,8 @@
         <algorithm  name="Flash/XMC4400_512.FLM"    start="0x0C000000"  size="0x80000"                  default="1"/>
         <algorithm  name="Flash/XMC4400c_512.FLM"   start="0x08000000"  size="0x80000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4400_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4400 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4400-DS-v01_02-EN.pdf"               title="XMC4400 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4400_AB_Errata_Sheet-ES-v01_04-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
+        <book    name="Documents/xmc4400_ds_v1.3_2018_09.pdf"               title="XMC4400 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4400_BA_Errata_Sheet-ES-v01_02-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="ETH" n="1" m="100000000"/>
         <feature type="ADC"           n="14"      m="12"/>
@@ -480,8 +491,8 @@
         <algorithm  name="Flash/XMC4400_256.FLM"    start="0x0C000000"  size="0x40000"                  default="1"/>
         <algorithm  name="Flash/XMC4400c_256.FLM"   start="0x08000000"  size="0x40000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4400_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4400 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4400-DS-v01_02-EN.pdf"               title="XMC4400 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4400_AB_Errata_Sheet-ES-v01_04-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
+        <book    name="Documents/xmc4400_ds_v1.3_2018_09.pdf"               title="XMC4400 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4400_BA_Errata_Sheet-ES-v01_02-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="ETH" n="1" m="100000000"/>
         <feature type="ADC"           n="24"      m="12"/>
@@ -501,8 +512,8 @@
         <algorithm  name="Flash/XMC4400_256.FLM"    start="0x0C000000"  size="0x40000"                  default="1"/>
         <algorithm  name="Flash/XMC4400c_256.FLM"   start="0x08000000"  size="0x40000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4400_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4400 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4400-DS-v01_02-EN.pdf"               title="XMC4400 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4400_AB_Errata_Sheet-ES-v01_04-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
+        <book    name="Documents/xmc4400_ds_v1.3_2018_09.pdf"               title="XMC4400 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4400_BA_Errata_Sheet-ES-v01_02-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="ETH" n="1" m="100000000"/>
         <feature type="ADC"           n="14"      m="12"/>
@@ -522,8 +533,8 @@
         <algorithm  name="Flash/XMC4400_256.FLM"    start="0x0C000000"  size="0x40000"                  default="1"/>
         <algorithm  name="Flash/XMC4400c_256.FLM"   start="0x08000000"  size="0x40000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4400_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4400 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4400-DS-v01_02-EN.pdf"               title="XMC4400 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4400_AB_Errata_Sheet-ES-v01_04-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
+        <book    name="Documents/xmc4400_ds_v1.3_2018_09.pdf"               title="XMC4400 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4400_BA_Errata_Sheet-ES-v01_02-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>   
         <feature type="ADC"           n="24"      m="12"/>
         <feature type="IOs"           n="55"/>
@@ -542,8 +553,8 @@
         <algorithm  name="Flash/XMC4400_256.FLM"    start="0x0C000000"  size="0x40000"                  default="1"/>
         <algorithm  name="Flash/XMC4400c_256.FLM"   start="0x08000000"  size="0x40000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4400_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4400 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4400-DS-v01_02-EN.pdf"               title="XMC4400 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4400_AB_Errata_Sheet-ES-v01_04-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
+        <book    name="Documents/xmc4400_ds_v1.3_2018_09.pdf"               title="XMC4400 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4400_BA_Errata_Sheet-ES-v01_02-EN.pdf"          title="XMC4400 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="14"      m="12"/>
         <feature type="IOs"           n="31"/>
@@ -569,8 +580,8 @@
         <algorithm  name="Flash/XMC4500_1024.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4500c_1024.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-xmc4500_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4500 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4500-DS-v01_04-EN.pdf"               title="XMC4500 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet_v1_2-ES-v01_02-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
+        <book    name="Documents/Infineon-XMC4500-DS-v01_05-EN.pdf"               title="XMC4500 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet-ES-v01_05-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="CAN"           n="3"/>
         <feature type="ETH" n="1" m="100000000"/>
@@ -592,8 +603,8 @@
         <algorithm  name="Flash/XMC4500_1024.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4500c_1024.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>
         <book    name="Documents/Infineon-xmc4500_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4500 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4500-DS-v01_04-EN.pdf"               title="XMC4500 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet_v1_2-ES-v01_02-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
+        <book    name="Documents/Infineon-XMC4500-DS-v01_05-EN.pdf"               title="XMC4500 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet-ES-v01_05-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="CAN"           n="3"/>
         <feature type="ETH" n="1" m="100000000"/>
@@ -615,8 +626,8 @@
         <algorithm  name="Flash/XMC4500_1024.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4500c_1024.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>
         <book    name="Documents/Infineon-xmc4500_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4500 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4500-DS-v01_04-EN.pdf"               title="XMC4500 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet_v1_2-ES-v01_02-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
+        <book    name="Documents/Infineon-XMC4500-DS-v01_05-EN.pdf"               title="XMC4500 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet-ES-v01_05-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="CAN"           n="3"/>
         <feature type="ETH" n="1" m="100000000"/>
@@ -638,8 +649,8 @@
         <algorithm  name="Flash/XMC4500_768.FLM"    start="0x0C000000"  size="0xC0000"                  default="1"/>
         <algorithm  name="Flash/XMC4500c_768.FLM"   start="0x08000000"  size="0xC0000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4500_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4500 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4500-DS-v01_04-EN.pdf"               title="XMC4500 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet_v1_2-ES-v01_02-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
+        <book    name="Documents/Infineon-XMC4500-DS-v01_05-EN.pdf"               title="XMC4500 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet-ES-v01_05-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="CAN"           n="3"/>
         <feature type="ETH" n="1" m="100000000"/>
@@ -661,8 +672,8 @@
         <algorithm  name="Flash/XMC4500_768.FLM"    start="0x0C000000"  size="0xC0000"                  default="1"/>
         <algorithm  name="Flash/XMC4500c_768.FLM"   start="0x08000000"  size="0xC0000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4500_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4500 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4500-DS-v01_04-EN.pdf"               title="XMC4500 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet_v1_2-ES-v01_02-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
+        <book    name="Documents/Infineon-XMC4500-DS-v01_05-EN.pdf"               title="XMC4500 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet-ES-v01_05-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="CAN"           n="3"/>
         <feature type="ETH" n="1" m="100000000"/>
@@ -684,8 +695,8 @@
         <algorithm  name="Flash/XMC4500_768.FLM"    start="0x0C000000"  size="0xC0000"                  default="1"/>
         <algorithm  name="Flash/XMC4500c_768.FLM"   start="0x08000000"  size="0xC0000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4500_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4500 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4500-DS-v01_04-EN.pdf"               title="XMC4500 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet_v1_2-ES-v01_02-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
+        <book    name="Documents/Infineon-XMC4500-DS-v01_05-EN.pdf"               title="XMC4500 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet-ES-v01_05-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>        
         <feature type="CAN"           n="3"/>
         <feature type="USBD"          n="1"/>
@@ -706,8 +717,8 @@
         <algorithm  name="Flash/XMC4500_512.FLM"    start="0x0C000000"  size="0x80000"                  default="1"/>
         <algorithm  name="Flash/XMC4500c_512.FLM"   start="0x08000000"  size="0x80000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4500_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4500 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4500-DS-v01_04-EN.pdf"               title="XMC4500 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet_v1_2-ES-v01_02-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
+        <book    name="Documents/Infineon-XMC4500-DS-v01_05-EN.pdf"               title="XMC4500 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet-ES-v01_05-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>   
         <feature type="ADC"           n="32"      m="12"/>
         <feature type="IOs"           n="91"/>
@@ -726,8 +737,8 @@
         <algorithm  name="Flash/XMC4500_512.FLM"    start="0x0C000000"  size="0x80000"                  default="1"/>
         <algorithm  name="Flash/XMC4500c_512.FLM"   start="0x08000000"  size="0x80000"                  default="1"/>
         <book    name="Documents/Infineon-xmc4500_rm_v1.6_2016-UM-v01_06-EN.pdf"               title="XMC4500 Series Reference Manual"/>
-        <book    name="Documents/Infineon-XMC4500-DS-v01_04-EN.pdf"               title="XMC4500 Series Data Sheet"/>
-        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet_v1_2-ES-v01_02-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
+        <book    name="Documents/Infineon-XMC4500-DS-v01_05-EN.pdf"               title="XMC4500 Series Data Sheet"/>
+        <book    name="Documents/Infineon-XMC4500_AC_Errata_Sheet-ES-v01_05-EN.pdf"          title="XMC4500 Series Errata Sheet"/>
         <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="24"      m="12"/>
         <feature type="IOs"           n="55"/>
@@ -756,9 +767,11 @@
         <algorithm  name="Flash/XMC4800_2048.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_2048.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4700 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"           title="XMC4700 Series Data Sheet"/>       
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4700 AB Errata Sheet"/>
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"           title="XMC4700 Series Data Sheet"/>       
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4700 AB Errata Sheet"/>
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="BGA"           n="196"/>                     
       </device>   
 
       <!-- ******************************  XMC4700-F144x2048  ****************************** -->
@@ -773,9 +786,11 @@
         <algorithm  name="Flash/XMC4800_2048.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_2048.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4700 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4700 Series Data Sheet"/>  
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4700 Series Data Sheet"/>  
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="QFP"           n="144"/>         
       </device> 
 
       <!-- ******************************  XMC4700-F100x2048  ****************************** -->
@@ -790,9 +805,11 @@
         <algorithm  name="Flash/XMC4800_2048.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_2048.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4700 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4700 Series Data Sheet"/>  
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4700 Series Data Sheet"/>  
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="24"      m="12"/>
+        <feature type="QFP"           n="100"/>         
       </device> 
 
       <!-- ******************************  XMC4700-E196x1536  ****************************** -->
@@ -807,9 +824,11 @@
         <algorithm  name="Flash/XMC4800_1536.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_1536.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4700 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4700 Series Data Sheet"/>      
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4700 Series Data Sheet"/>      
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="BGA"           n="196"/>                     
       </device>
 
       <!-- ******************************  XMC4700-F144x1536  ****************************** -->
@@ -824,9 +843,11 @@
         <algorithm  name="Flash/XMC4800_1536.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_1536.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4700 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4700 Series Data Sheet"/>   
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4700 Series Data Sheet"/>   
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="QFP"           n="144"/>         
       </device>
 
       <!-- ******************************  XMC4700-F100x1536  ****************************** -->
@@ -841,9 +862,11 @@
         <algorithm  name="Flash/XMC4800_1536.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_1536.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4700 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4700 Series Data Sheet"/>  
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4700 Series Data Sheet"/>  
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4700 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="24"      m="12"/>
+        <feature type="QFP"           n="100"/>         
       </device>
       </subFamily>
       
@@ -868,9 +891,11 @@
         <algorithm  name="Flash/XMC4800_2048.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_2048.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4800 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4800 Series Data Sheet"/>   
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4800 Series Data Sheet"/>   
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="BGA"           n="196"/>             
       </device>   
 
       <!-- ******************************  XMC4800-F144x2048  ****************************** -->
@@ -885,9 +910,11 @@
         <algorithm  name="Flash/XMC4800_2048.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_2048.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4800 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4800 Series Data Sheet"/>   
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4800 Series Data Sheet"/>   
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="QFP"           n="144"/>         
       </device> 
 
       <!-- ******************************  XMC4800-F100x2048  ****************************** -->
@@ -902,9 +929,11 @@
         <algorithm  name="Flash/XMC4800_2048.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_2048.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4800 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4800 Series Data Sheet"/> 
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4800 Series Data Sheet"/> 
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="24"      m="12"/>
+        <feature type="QFP"           n="100"/>         
       </device> 
 
       <!-- ******************************  XMC4800-E196x1536  ****************************** -->
@@ -919,9 +948,11 @@
         <algorithm  name="Flash/XMC4800_1536.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_1536.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4800 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4800 Series Data Sheet"/>   
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4800 Series Data Sheet"/>   
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="BGA"           n="196"/>             
       </device>
 
       <!-- ******************************  XMC4800-F144x1536  ****************************** -->
@@ -936,9 +967,11 @@
         <algorithm  name="Flash/XMC4800_1536.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_1536.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4800 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4800 Series Data Sheet"/>  
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4800 Series Data Sheet"/>  
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="QFP"           n="144"/>         
       </device>
 
       <!-- ******************************  XMC4800-F100x1536  ****************************** -->
@@ -953,9 +986,11 @@
         <algorithm  name="Flash/XMC4800_1536.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_1536.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4800 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4800 Series Data Sheet"/>    
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4800 Series Data Sheet"/>    
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="24"      m="12"/>
+        <feature type="QFP"           n="100"/>         
       </device>
 
       <!-- ******************************  XMC4800-E196x1024  ****************************** -->
@@ -970,9 +1005,11 @@
         <algorithm  name="Flash/XMC4800_1024.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_1024.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4800 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4800 Series Data Sheet"/>  
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4800 Series Data Sheet"/>  
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="BGA"           n="196"/>             
       </device>
 
       <!-- ******************************  XMC4800-F144x1024  ****************************** -->
@@ -987,9 +1024,11 @@
         <algorithm  name="Flash/XMC4800_1024.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_1024.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4800 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4800 Series Data Sheet"/>    
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4800 Series Data Sheet"/>    
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="32"      m="12"/>
+        <feature type="QFP"           n="144"/>         
       </device>
 
       <!-- ******************************  XMC4800-F100x1024  ****************************** -->
@@ -1004,9 +1043,11 @@
         <algorithm  name="Flash/XMC4800_1024.FLM"   start="0x0C000000"  size="0x100000"                 default="1"/>
         <algorithm  name="Flash/XMC4800c_1024.FLM"  start="0x08000000"  size="0x100000"                 default="1"/>      
         <book    name="Documents/Infineon-ReferenceManual_XMC4700_XMC4800-UM-v01_03-EN.pdf"                   title="XMC4800 Series Reference Manual"/>
-        <book    name="Documents/xmc4700_xmc4800__ds_v1.0_2016_01.pdf"     title="XMC4800 Series Data Sheet"/>    
-        <book    name="Documents/XMC4700_XMC4800_AA_Errata_Sheet_v1_1.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Documents/xmc4700_xmc4800_ds_v1.1_2018_09.pdf"     title="XMC4800 Series Data Sheet"/>    
+        <book    name="Documents/Infineon-ErrataSheet_XMC4700_XMC4800_AA-ES-v01_04-EN.pdf"       title="XMC4800 AB Errata Sheet"/>    
+        <book    name="Device/XMClib/doc/XMC4_Peripheral_Library.chm"       title="XMC4 Peripheral Library"/>    
         <feature type="ADC"           n="24"      m="12"/>
+        <feature type="QFP"           n="100"/>         
       </device>
       </subFamily>
       
@@ -1070,6 +1111,28 @@
       </board>
  
      <board vendor="Infineon" name="XMC4300 Relax Kit" revision="V1" salesContact="sales@infineon.com" orderForm="http://www.infineon.com/cms/en/product/evaluation-boards/KIT_XMC43_RELAX_ECAT_V1/productType.html?productType=5546d462525dbac40152abf1111417c0">
+      <description>XMC4300 Relax Kit Support and Examples</description>
+      <image small="Images/XMC4300-Ethercat.jpg"/>
+      <book category="overview"  name="http://www.infineon.com/cms/en/product/evaluation-boards/KIT_XMC43_RELAX_ECAT_V1/productType.html?productType=5546d462525dbac40152abf1111417c0" title="XMC4300 Relax Kit Web Page"/>
+      <book category="schematic" name="Documents/Infineon-PCB Footprints and Symbols - XMC4700-XMC4800 - Source Eagle - Relax Kit Series-PCB-v01_00-EN.zip" title="Schematics"/>
+      <book category="manual"    name="Documents/Infineon-User_Manual_XMC4300_Relax_Kit.pdf-UM-v01_01-EN.pdf" title="User Manual"/>
+      <mountedDevice    deviceIndex="0" Dvendor="Infineon:7" Dname="XMC4300-F100x256"/>
+      <compatibleDevice deviceIndex="0" Dvendor="Infineon:7" DsubFamily="XMC4300 Series"/>
+        <feature type="ODbg"      n="1"              name="On-board J-LINK Lite"/>      
+        <feature type="XTAL"      n="14400000"/>
+        <feature type="XTAL"      n="32768"          name="32k on-board crystal"/>
+        <feature type="ROM"       n="1"              name="32 MBit Quad-SPI Flash"/>
+        <feature type="PWR"       n="5"              name="USB Powered"/>
+        <feature type="USB"       n="1"              name="USB Device (Micro-AB)"/>
+        <feature type="MemCard"   n="1"              name="SD Card Holder"/>        
+        <feature type="ETH"       n="1" m="10000000" name="Ethernet RJ45 Plug, Würth"/>
+        <feature type="Button"    n="3"              name="BUTTON1(P1.14), BUTTON2(P1.15), RESET"/>
+        <feature type="ContOther" n="1"              name="2-Pin DIP Switch (Hardware boot mode selection)"/>
+        <feature type="LED"       n="2"              name="LED1(P1.1), LED2(P1.0)"/>
+      <debugInterface adapter="J-Link Lite" connector="Micro-USB"/>
+    </board>
+
+     <board vendor="Infineon" name="XMC4800 IoT Connectivity Kit" revision="V1.1" salesContact="sales@infineon.com" orderForm="http://www.infineon.com/cms/en/product/evaluation-boards/KIT_XMC43_RELAX_ECAT_V1/productType.html?productType=5546d462525dbac40152abf1111417c0">
       <description>XMC4300 Relax Kit Support and Examples</description>
       <image small="Images/XMC4300-Ethercat.jpg"/>
       <book category="overview"  name="http://www.infineon.com/cms/en/product/evaluation-boards/KIT_XMC43_RELAX_ECAT_V1/productType.html?productType=5546d462525dbac40152abf1111417c0" title="XMC4300 Relax Kit Web Page"/>
@@ -2803,12 +2866,42 @@
     </example>  
 
     <!-- Infineon XMC4 Low Level Driver (LLD) Examples -->
-    <!-- CAN -->    
-    <example name="CAN" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/CAN/CAN_LOOPBACK">
+   
+    <!-- XMC4400 Examples -->    
+    <example name="HRPWM_CSG_XMC44" doc="Readme.txt" folder="Device/XMClib/examples/XMC4400_series/HRPWM/HRPWM_CSG"> 
+      <description>XMClib High Resolution PWM (HAPWM) driver example - CSG </description>
+      <board name="XMC4400 CPU Board - General Purpose  (CPU_44A)" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ARM/hrpwm_csg_xmc44.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>      
+        <component Cclass="Device" Cgroup="XMClib" Csub="HRPWM"/>
+        <category>LLD Examples</category>
+      </attributes>
+    </example> 
+
+    <example name="HRPWM_HRC_XMC44" doc="Readme.txt" folder="Device/XMClib/examples/XMC4400_series/HRPWM/HRPWM_HRC"> 
+      <description>XMClib High Resolution PWM (HAPWM) driver example - HRC </description>
+      <board name="XMC4400 CPU Board - General Purpose  (CPU_44A)" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ARM/hrpwm_hrc_xmc44.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>      
+        <component Cclass="Device" Cgroup="XMClib" Csub="HRPWM"/>
+        <category>LLD Examples</category>
+      </attributes>
+    </example> 
+
+    <!-- XMC4500 Examples -->    
+    <example name="CAN_LOOPBACK_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/CAN/CAN_LOOPBACK">
       <description>XMClib CAN example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/can_loopback.uvprojx"/>
+        <environment name="uv" load="ARM/can_loopback_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -2817,13 +2910,40 @@
         <category>LLD Examples</category>
       </attributes>
     </example>
-    
-    <!-- CCU4 -->    
-    <example name="CCU4" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/CCU4/CCU4_TIMER">
+
+    <example name="CAN_RECEIVER_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/CAN/CAN_RECEIVER">
+      <description>XMClib CAN example</description>
+      <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ARM/can_receiver_xmc45.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="XMClib" Csub="CAN"/>        
+        <category>LLD Examples</category>
+      </attributes>
+    </example>
+
+    <example name="CAN_TRANSMITTER_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/CAN/CAN_TRANSMITTER">
+      <description>XMClib CAN example</description>
+      <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ARM/can_transmitter_xmc45.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="XMClib" Csub="CAN"/>        
+        <category>LLD Examples</category>
+      </attributes>
+    </example>
+
+    <example name="CCU4_TIMER_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/CCU4/CCU4_TIMER">
       <description>XMClib CCU4 example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/ccu4_timer.uvprojx"/>
+        <environment name="uv" load="ARM/ccu4_timer_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -2833,26 +2953,11 @@
       </attributes>
     </example>
 
-    <example name="CCU4" doc="Readme.txt" folder="Device/XMClib/examples/XMC4800_series/CCU4/CCU4_TIMER">
-      <description>XMClib CCU4 example</description>
-      <board name="XMC4800 Relax EtherCAT Kit" vendor="Infineon"/>
-      <project>
-        <environment name="uv" load="ARM/ccu4_timer.uvprojx"/>
-      </project>
-      <attributes>
-        <component Cclass="CMSIS" Cgroup="CORE"/>
-        <component Cclass="Device" Cgroup="Startup"/>
-        <component Cclass="Device" Cgroup="XMClib" Csub="CCU4"/>        
-        <category>LLD Examples</category>
-      </attributes>
-    </example>
-    
-    <!-- CCU8 -->    
-    <example name="CCU8" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/CCU8/CCU8_TIMER">
+    <example name="CCU8_TIMER_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/CCU8/CCU8_TIMER">
       <description>XMClib CCU8 example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/ccu8_timer.uvprojx"/>
+        <environment name="uv" load="ARM/ccu8_timer_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -2861,13 +2966,12 @@
         <category>LLD Examples</category>
       </attributes>
     </example>
-    
-    <!-- DAC -->    
-    <example name="DAC" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/DAC/DAC_SINE">
+
+    <example name="DAC_SINE_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/DAC/DAC_SINE">
       <description>XMClib DAC example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/dac_sine.uvprojx"/>
+        <environment name="uv" load="ARM/dac_sine_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -2877,26 +2981,11 @@
       </attributes>
     </example>   
 
-    <example name="DAC" doc="Readme.txt" folder="Device/XMClib/examples/XMC4800_series/DAC/DAC_SINE">
-      <description>XMClib DAC example</description>
-      <board name="XMC4800 Relax EtherCAT Kit" vendor="Infineon"/>
-      <project>
-        <environment name="uv" load="ARM/dac_sine.uvprojx"/>
-      </project>
-      <attributes>
-        <component Cclass="CMSIS" Cgroup="CORE"/>
-        <component Cclass="Device" Cgroup="Startup"/>
-        <component Cclass="Device" Cgroup="XMClib" Csub="DAC"/>        
-        <category>LLD Examples</category>
-      </attributes>
-    </example> 
-    
-    <!-- DMA -->    
-    <example name="DMA" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/DMA/DMA_M2M">
+    <example name="DMA_M2M_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/DMA/DMA_M2M">
       <description>XMClib DMA example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/dma_m2m.uvprojx"/>
+        <environment name="uv" load="ARM/dma_m2m_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -2906,12 +2995,11 @@
       </attributes>
     </example> 
 
-    <!-- ERU -->    
-    <example name="ERU" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/ERU/ERU_EXTINT"> 
+    <example name="ERU_EXTINT_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/ERU/ERU_EXTINT"> 
       <description>XMClib ERU external interrupt example</description>
       <board name="XMC4500 Relax Lite Kit" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/eru_extint.uvprojx"/>
+        <environment name="uv" load="ARM/eru_extint_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -2921,12 +3009,12 @@
         <category>LLD Examples</category>
       </attributes>
     </example>
-    <!-- FCE -->    
-    <example name="FCE" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/FCE/FCE_CRC">
+
+    <example name="FCE_CRC_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/FCE/FCE_CRC">
       <description>XMClib FCE example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/fce_crc.uvprojx"/>
+        <environment name="uv" load="ARM/fce_crc_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -2936,12 +3024,11 @@
       </attributes>
     </example>
 
-    <!-- FLASH -->    
-    <example name="FLASH" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/FLASH/FLASH_PROGRAM"> 
+    <example name="FLASH_PROGRAM_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/FLASH/FLASH_PROGRAM"> 
       <description>XMClib FLASH example</description>
       <board name="XMC4500 Relax Lite Kit" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/flash_program.uvprojx"/>
+        <environment name="uv" load="ARM/flash_program_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -2950,12 +3037,12 @@
         <category>LLD Examples</category>
       </attributes>
     </example>
-    <!-- GPIO -->    
-    <example name="GPIO" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/GPIO/GPIO_TOGGLE"> 
+
+    <example name="GPIO_TOGGLE_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/GPIO/GPIO_TOGGLE"> 
       <description>XMClib GPIO toggle example flashes the leds of the board with a periodic rate</description>
       <board name="XMC4500 Relax Lite Kit" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/gpio_toggle.uvprojx"/>
+        <environment name="uv" load="ARM/gpio_toggle_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -2965,42 +3052,11 @@
       </attributes>
     </example>                    
 
-    <!-- HRPWM_CSG -->    
-    <example name="HRPWM_CSG" doc="Readme.txt" folder="Device/XMClib/examples/XMC4400_series/HRPWM/HRPWM_CSG"> 
-      <description>XMClib High Resolution PWM (HAPWM) driver example - CSG </description>
-      <board name="XMC4400 CPU Board - General Purpose  (CPU_44A)" vendor="Infineon"/>
-      <project>
-        <environment name="uv" load="ARM/hrpwm_csg.uvprojx"/>
-      </project>
-      <attributes>
-        <component Cclass="CMSIS" Cgroup="CORE"/>
-        <component Cclass="Device" Cgroup="Startup"/>      
-        <component Cclass="Device" Cgroup="XMClib" Csub="HRPWM"/>
-        <category>LLD Examples</category>
-      </attributes>
-    </example> 
-
-    <!-- HRPWM_HRC -->    
-    <example name="HRPWM_HRC" doc="Readme.txt" folder="Device/XMClib/examples/XMC4400_series/HRPWM/HRPWM_HRC"> 
-      <description>XMClib High Resolution PWM (HAPWM) driver example - HRC </description>
-      <board name="XMC4400 CPU Board - General Purpose  (CPU_44A)" vendor="Infineon"/>
-      <project>
-        <environment name="uv" load="ARM/hrpwm_hrc.uvprojx"/>
-      </project>
-      <attributes>
-        <component Cclass="CMSIS" Cgroup="CORE"/>
-        <component Cclass="Device" Cgroup="Startup"/>      
-        <component Cclass="Device" Cgroup="XMClib" Csub="HRPWM"/>
-        <category>LLD Examples</category>
-      </attributes>
-    </example> 
-        
-    <!-- I2C -->    
-    <example name="I2C" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/I2C/I2C_TRANSFER">
+    <example name="I2C_TRANSFER_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/I2C/I2C_TRANSFER">
       <description>XMClib I2C example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/i2c_transfer.uvprojx"/>     
+        <environment name="uv" load="ARM/i2c_transfer_xmc45.uvprojx"/>     
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -3011,12 +3067,11 @@
       </attributes>
     </example> 
 
-    <!-- LEDTS -->    
-    <example name="LEDTS" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/LEDTS/LEDTS_TOUCH">
+    <example name="LEDTS_TOUCH_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/LEDTS/LEDTS_TOUCH">
       <description>XMClib LEDTS example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/ledts_touch.uvprojx"/>
+        <environment name="uv" load="ARM/ledts_touch_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -3027,12 +3082,11 @@
       </attributes>
     </example>
 
-    <!-- RTC -->    
-    <example name="RTC" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/RTC/RTC_ALARM">
+    <example name="RTC_ALARM_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/RTC/RTC_ALARM">
       <description>XMClib RTC example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/rtc_alarm.uvprojx"/>
+        <environment name="uv" load="ARM/rtc_alarm_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -3042,12 +3096,11 @@
       </attributes>
     </example>
 
-    <!-- SPI -->
-    <example name="SPI" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/SPI/SPI_TRANSMIT">
+    <example name="SPI_TRANSMIT_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/SPI/SPI_TRANSMIT">
       <description>XMClib SPI example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/spi_transmit.uvprojx"/>
+        <environment name="uv" load="ARM/spi_transmit_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -3058,12 +3111,11 @@
       </attributes>
     </example>
 
-    <!-- UART -->
-    <example name="UART" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/UART/UART_TRANSMIT">
+    <example name="UART_TRANSMIT_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/UART/UART_TRANSMIT">
       <description>XMClib UART example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/uart_transmit.uvprojx"/>
+        <environment name="uv" load="ARM/uart_transmit_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -3073,12 +3125,11 @@
       </attributes>
     </example>
 
-    <!-- VADC -->
-    <example name="VADC" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/VADC/VADC_MEASUREMENT">
+    <example name="VADC_MEASUREMENT_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/VADC/VADC_MEASUREMENT">
       <description>XMClib VADC example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/vadc_measurement.uvprojx"/>
+        <environment name="uv" load="ARM/vadc_measurement_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -3088,26 +3139,11 @@
       </attributes>
     </example>
 
-    <example name="VADC" doc="Readme.txt" folder="Device/XMClib/examples/XMC4800_series/VADC/VADC_MEASUREMENT">
-      <description>XMClib VADC example</description>
-      <board name="XMC4800 Relax EtherCAT Kit" vendor="Infineon"/>
-      <project>
-        <environment name="uv" load="ARM/vadc_measurement.uvprojx"/>
-      </project>
-      <attributes>
-        <component Cclass="CMSIS" Cgroup="CORE"/>
-        <component Cclass="Device" Cgroup="Startup"/>
-        <component Cclass="Device" Cgroup="XMClib" Csub="VADC"/>
-        <category>LLD Examples</category>
-      </attributes>
-    </example>
-
-    <!-- WDT -->
-    <example name="WDT" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/WDT/WDT_FEED">
+    <example name="WDT_FEED_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/WDT/WDT_FEED">
       <description>XMClib WDT example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45A)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/wdt_feed.uvprojx"/>
+        <environment name="uv" load="ARM/wdt_feed_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -3119,12 +3155,11 @@
       </attributes>
     </example>
 
-    <!-- EBU -->    
-    <example name="EBU" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/EBU/EBU_SDRAM">
+    <example name="EBU_SDRAM_XMC45" doc="Readme.txt" folder="Device/XMClib/examples/XMC4500_series/EBU/EBU_SDRAM">
       <description>XMClib EBU example</description>
       <board name="XMC4500 CPU Board - General Purpose (CPU_45B)" vendor="Infineon"/>
       <project>
-        <environment name="uv" load="ARM/ebu_sdram.uvprojx"/>
+        <environment name="uv" load="ARM/ebu_sdram_xmc45.uvprojx"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -3135,11 +3170,54 @@
         <category>LLD Examples</category>
       </attributes>
     </example>  
-    
+
+    <!-- XMC4800 Examples -->    
+    <example name="CCU4_TIMER_XMC48" doc="Readme.txt" folder="Device/XMClib/examples/XMC4800_series/CCU4/CCU4_TIMER">
+      <description>XMClib CCU4 example</description>
+      <board name="XMC4800 Relax EtherCAT Kit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ARM/ccu4_timer_xmc48.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="XMClib" Csub="CCU4"/>        
+        <category>LLD Examples</category>
+      </attributes>
+    </example>
+       
+    <example name="DAC_SINE_XMC48" doc="Readme.txt" folder="Device/XMClib/examples/XMC4800_series/DAC/DAC_SINE">
+      <description>XMClib DAC example</description>
+      <board name="XMC4800 Relax EtherCAT Kit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ARM/dac_sine_xmc48.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="XMClib" Csub="DAC"/>        
+        <category>LLD Examples</category>
+      </attributes>
+    </example>   
+
+    <example name="VADC_MEASUREMENT_XMC48" doc="Readme.txt" folder="Device/XMClib/examples/XMC4800_series/VADC/VADC_MEASUREMENT">
+      <description>XMClib VADC example</description>
+      <board name="XMC4800 Relax EtherCAT Kit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="ARM/vadc_measurement_xmc48.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="Device" Cgroup="XMClib" Csub="VADC"/>
+        <category>LLD Examples</category>
+      </attributes>
+    </example>
+
   </examples>
   
   <components>
-    <component Cclass="Device" Cgroup="Startup" Cversion="2.2.0" condition="XMC4 CMSIS">
+    <component Cclass="Device" Cgroup="Startup" Cversion="2.2.4" condition="XMC4 CMSIS">
       <description>System Startup for Infineon XMC4000 family</description>
       <RTE_Components_h>
         #define RTE_DEVICE_STARTUP
@@ -3165,13 +3243,13 @@
         <file category="header" name="Device/XMC4800_series/Include/XMC4800.h" version="1.3.1" condition="XMC48xx"/>
         
         <!-- system file -->
-        <file category="source" name="Device/XMC4100_series/Source/system_XMC4100.c" version="3.2.4" attr="config" condition="XMC41xx"/>
-        <file category="source" name="Device/XMC4200_series/Source/system_XMC4200.c" version="3.1.3" attr="config" condition="XMC42xx"/>
-        <file category="source" name="Device/XMC4300_series/Source/system_XMC4300.c" version="1.0.5" attr="config" condition="XMC43xx"/>
-        <file category="source" name="Device/XMC4400_series/Source/system_XMC4400.c" version="3.1.3" attr="config" condition="XMC44xx"/>
-        <file category="source" name="Device/XMC4500_series/Source/system_XMC4500.c" version="3.1.4" attr="config" condition="XMC45xx"/>
-        <file category="source" name="Device/XMC4700_series/Source/system_XMC4700.c" version="1.0.5" attr="config" condition="XMC47xx"/>
-        <file category="source" name="Device/XMC4800_series/Source/system_XMC4800.c" version="1.0.5" attr="config" condition="XMC48xx"/>
+        <file category="source" name="Device/XMC4100_series/Source/system_XMC4100.c" version="3.2.5" attr="config" condition="XMC41xx"/>
+        <file category="source" name="Device/XMC4200_series/Source/system_XMC4200.c" version="3.1.4" attr="config" condition="XMC42xx"/>
+        <file category="source" name="Device/XMC4300_series/Source/system_XMC4300.c" version="1.0.6" attr="config" condition="XMC43xx"/>
+        <file category="source" name="Device/XMC4400_series/Source/system_XMC4400.c" version="3.1.4" attr="config" condition="XMC44xx"/>
+        <file category="source" name="Device/XMC4500_series/Source/system_XMC4500.c" version="3.1.5" attr="config" condition="XMC45xx"/>
+        <file category="source" name="Device/XMC4700_series/Source/system_XMC4700.c" version="1.0.6" attr="config" condition="XMC47xx"/>
+        <file category="source" name="Device/XMC4800_series/Source/system_XMC4800.c" version="1.0.6" attr="config" condition="XMC48xx"/>
         
         <!-- startup files -->
         <file category="source" name="Device/XMC4100_series/Source/ARM/startup_XMC4100.s" version="1.4.0" attr="config" condition="XMC4100_ARMCC"/>
@@ -3277,7 +3355,7 @@
       </files>
     </component>
 
-    <component Cvendor="ARM" Cclass="CMSIS" Cgroup="RTOS" Csub="Keil RTX" Cversion="4.81.1" Capiversion="1.0.0" Cvariant="IFX" isDefaultVariant="1" condition="XMC4 CMSIS">
+    <component Cvendor="ARM" Cclass="CMSIS" Cgroup="RTOS" Csub="Keil RTX" Cversion="4.82.1" Capiversion="1.0.0" Cvariant="IFX" isDefaultVariant="1" condition="XMC4 CMSIS">
       <description>CMSIS-RTOS RTX optimized implementation for Infineon XMC4 series not affected by PMU_CM.001 errata</description>
       <RTE_Components_h>
         <!-- the following content goes into file 'RTE_Components.h' -->
@@ -3317,7 +3395,7 @@
 
     <!-- START: Infineon Standard Peripherals Low Level Drivers (XMClib)-->
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="VADC" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="VADC" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Versatile Analog-to-Digital Converter (VADC) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_VADC
@@ -3330,7 +3408,7 @@
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="CAN" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="CAN" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Controller area network (CAN) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_CAN
@@ -3343,7 +3421,7 @@
       </files>
     </component>
     
-    <component Cclass="Device" Cgroup="XMClib" Csub="CCU4" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="CCU4" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Capture Compare Unit 4 (CCU4) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_CCU4
@@ -3356,7 +3434,7 @@
       </files>
     </component>    
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="CCU8" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="CCU8" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Capture Compare Unit 8 (CCU8) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_CCU8
@@ -3369,7 +3447,7 @@
       </files>
     </component>  
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="DAC" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="DAC" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Digital to Analog Converter (DAC) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_DAC
@@ -3382,7 +3460,7 @@
       </files>
     </component> 
         
-    <component Cclass="Device" Cgroup="XMClib" Csub="DMA" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="DMA" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Direct Memory Access (DMA) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_DMA
@@ -3395,7 +3473,7 @@
       </files>
     </component> 
     
-    <component Cclass="Device" Cgroup="XMClib" Csub="DSD" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="DSD" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Delta Sigma Demodulator (DSD) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_DSD
@@ -3408,7 +3486,7 @@
       </files>
     </component> 
    
-    <component Cclass="Device" Cgroup="XMClib" Csub="EBU" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="EBU" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>External Bus Interface (EBU) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_EBU
@@ -3421,7 +3499,7 @@
       </files>
     </component> 
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="ERU" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="ERU" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Event Request Unit (ERU) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_ERU
@@ -3435,7 +3513,7 @@
       </files>
     </component>  
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="ECAT" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="ECAT" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description> EtherCAT (ECAT) driver for XMC4000</description>
       <RTE_Components_h>      
         #define RTE_DEVICE_XMCLIB_ECAT
@@ -3448,7 +3526,7 @@
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="ETH_MAC" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="ETH_MAC" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description> Ethernet MAC (ETH_MAC) driver for XMC4000</description>
       <RTE_Components_h>      
         #define RTE_DEVICE_XMCLIB_ETH_MAC
@@ -3461,7 +3539,7 @@
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="ETH_PHY" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="ETH_PHY" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description> Ethernet PHY (ETH_PHY) driver for XMC4000</description>
       <RTE_Components_h>      
         #define RTE_DEVICE_XMCLIB_ETH_PHY
@@ -3476,7 +3554,7 @@
       </files>
     </component>
     
-    <component Cclass="Device" Cgroup="XMClib" Csub="GPIO" Cversion="2.1.18" condition="XMC4 CMSIS">
+    <component Cclass="Device" Cgroup="XMClib" Csub="GPIO" Cversion="2.1.22" condition="XMC4 CMSIS">
       <description>General Purpose Input/Output (GPIO) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_GPIO
@@ -3490,7 +3568,7 @@
       </files>
     </component> 
             
-    <component Cclass="Device" Cgroup="XMClib" Csub="HRPWM" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="HRPWM" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>High Resolution PWM (HAPWM) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_HRPWM
@@ -3503,7 +3581,7 @@
       </files>
     </component> 
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="I2C" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="I2C" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Inter Integrated Circuit (also known as I2C) (I2C) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_I2C
@@ -3517,7 +3595,7 @@
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="I2S" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="I2S" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Inter-IC Sound Interface (also known as I2S) (I2S) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_I2S
@@ -3531,7 +3609,7 @@
       </files>
     </component>
     
-    <component Cclass="Device" Cgroup="XMClib" Csub="LEDTS" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="LEDTS" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>LED and Touch Sense (Control Unit) (LEDTS) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_LEDTS
@@ -3544,7 +3622,7 @@
       </files>
     </component>
     
-    <component Cclass="Device" Cgroup="XMClib" Csub="POSIF" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="POSIF" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Position Interface (POSIF) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_POSIF
@@ -3557,7 +3635,7 @@
       </files>
     </component>
         
-    <component Cclass="Device" Cgroup="XMClib" Csub="RTC" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="RTC" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Real Time Clock (RTC) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_RTC
@@ -3571,7 +3649,7 @@
       </files>
     </component>
     
-     <component Cclass="Device" Cgroup="XMClib" Csub="SCU" Cversion="2.1.18" condition="XMC4 CMSIS">
+     <component Cclass="Device" Cgroup="XMClib" Csub="SCU" Cversion="2.1.22" condition="XMC4 CMSIS">
       <description>System Control Unit (SCU) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_SCU
@@ -3584,7 +3662,7 @@
       </files>
     </component>
 
-     <component Cclass="Device" Cgroup="XMClib" Csub="SDMMC" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+     <component Cclass="Device" Cgroup="XMClib" Csub="SDMMC" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Secure Digital/Multi Media Card (Interface) (SDMMC) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_SDMMC
@@ -3597,7 +3675,7 @@
       </files>
     </component>
     
-     <component Cclass="Device" Cgroup="XMClib" Csub="SPI" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+     <component Cclass="Device" Cgroup="XMClib" Csub="SPI" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Serial Peripheral Interface (SPI) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_SPI
@@ -3611,7 +3689,7 @@
       </files>
     </component>
 
-     <component Cclass="Device" Cgroup="XMClib" Csub="UART" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+     <component Cclass="Device" Cgroup="XMClib" Csub="UART" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Universal Asynchronous Receiver Transmitter (UART) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_UART
@@ -3625,7 +3703,7 @@
       </files>
     </component>
 
-     <component Cclass="Device" Cgroup="XMClib" Csub="USB" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+     <component Cclass="Device" Cgroup="XMClib" Csub="USB" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description>Universal Serial Bus (USB) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_USB
@@ -3638,7 +3716,7 @@
       </files>
     </component>
     
-    <component Cclass="Device" Cgroup="XMClib" Csub="WDT" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="WDT" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description> Watchdog Timer (WDT) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_WDT
@@ -3651,7 +3729,7 @@
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="FCE" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="FCE" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description> Flexible CRC Engine (FCE) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_FCE
@@ -3664,7 +3742,7 @@
       </files>
     </component>
 
-    <component Cclass="Device" Cgroup="XMClib" Csub="FLASH" Cversion="2.1.18" condition="XMC4 CMSIS SCU">
+    <component Cclass="Device" Cgroup="XMClib" Csub="FLASH" Cversion="2.1.22" condition="XMC4 CMSIS SCU">
       <description> Flash Driver (FLASH) driver for XMC4000</description>
       <RTE_Components_h>
         #define RTE_DEVICE_XMCLIB_FLASH
@@ -3681,7 +3759,7 @@
 
     <!-- START: CMSIS Peripherals Drivers -->
         
-    <component Cclass="CMSIS Driver" Cgroup="Ethernet MAC" Capiversion="2.01" Cversion="2.10" condition="XMC4 CMSIS Driver Ethernet MAC">
+    <component Cclass="CMSIS Driver" Cgroup="Ethernet MAC" Capiversion="2.01" Cversion="2.11" condition="XMC4 CMSIS Driver Ethernet MAC">
       <description>Ethernet MAC Driver for XMC4000 Family</description>
       <RTE_Components_h>
         #define RTE_Drivers_ETH_MAC
@@ -3773,7 +3851,7 @@
       </files>
     </component>
 
-    <component Cclass="CMSIS Driver" Cgroup="CAN" Capiversion="1.00" Cversion="1.01" condition="XMC4 CMSIS Driver CAN">
+    <component Cclass="CMSIS Driver" Cgroup="CAN" Capiversion="1.00" Cversion="1.02" condition="XMC4 CMSIS Driver CAN">
       <description>CAN Driver for XMC4000 Family</description>
       <RTE_Components_h>
         #define RTE_Drivers_CAN
