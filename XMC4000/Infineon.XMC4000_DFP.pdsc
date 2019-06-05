@@ -3,11 +3,10 @@
 <package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
   <license>License/CMSIS_END_USER_LICENSE_AGREEMENT.txt</license> 
   <vendor>Infineon</vendor>
-  <url>http://dave.infineon.com/Libraries/CMSIS_PACK/</url>
+  <url>https://github.com/Infineon/cmsis_packs/raw/master/XMC4000/</url>
   <name>XMC4000_DFP</name>
   <description>
       Infineon XMC4000 Series Device Support, Drivers and Examples
-      Note: The new PACK download address is http://dave.infineon.com/Libraries/CMSIS_PACK/  
   </description>
   <supportContact>http://www.infineon.com/cms/en/corporate/company/contact/support/index.html</supportContact> 
   
@@ -19,6 +18,7 @@
       Added XMC4800 IoT Connectivity Kit
       Fixed flash programming algorithms to avoid last page garbage from last programming
       Upgraded CMSIS-RTOS RTX IFX implementation to v4.82
+      Note: The new PACK download address is https://github.com/Infineon/cmsis_packs/  
     </release>      
     <release version="2.11.0" date="2018-10-22">
       Update of XMC Lib to v2.1.20
