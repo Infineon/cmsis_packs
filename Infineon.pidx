@@ -2,10 +2,10 @@
 <index schemaVersion="1.1.0" xs:noNamespaceSchemaLocation="PackIndex.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
   <vendor>Infineon</vendor>
   <url>https://github.com/Infineon/cmsis_packs/raw/master/</url>
-  <timestamp>2019-07-22T15:22:32.5676577+00:00</timestamp>
+  <timestamp>2019-08-02T10:11:32.5676577+00:00</timestamp>
   <pindex>
-    <pdsc url="https://www.infineon.com/cmsis_packs/XMC1000/" vendor="Infineon" name="XMC1000_DFP" version="2.10.1" />
-    <pdsc url="https://www.infineon.com/cmsis_packs/XMC4000/" vendor="Infineon" name="XMC4000_DFP" version="2.12.1" />
+    <pdsc url="https://www.infineon.com/cmsis_packs/XMC1000/" vendor="Infineon" name="XMC1000_DFP" version="2.11.0" />
+    <pdsc url="https://www.infineon.com/cmsis_packs/XMC4000/" vendor="Infineon" name="XMC4000_DFP" version="2.13.0" />
     <pdsc url="https://www.infineon.com/cmsis_packs/TLE984x/" vendor="Infineon" name="TLE984x_DFP" version="1.2.0" />
     <pdsc url="https://www.infineon.com/cmsis_packs/TLE985x/" vendor="Infineon" name="TLE985x_DFP" version="1.1.4" />
     <pdsc url="https://www.infineon.com/cmsis_packs/TLE986x/" vendor="Infineon" name="TLE986x_DFP" version="1.4.2" />
