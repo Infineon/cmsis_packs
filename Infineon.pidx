@@ -8,7 +8,7 @@
     <pdsc url="https://www.infineon.com/cmsis_packs/XMC4000/" vendor="Infineon" name="XMC4000_DFP" version="2.13.0" />
     <pdsc url="https://www.infineon.com/cmsis_packs/TLE984x/" vendor="Infineon" name="TLE984x_DFP" version="1.2.0" />
     <pdsc url="https://www.infineon.com/cmsis_packs/TLE985x/" vendor="Infineon" name="TLE985x_DFP" version="1.1.6" />
-    <pdsc url="https://www.infineon.com/cmsis_packs/TLE986x/" vendor="Infineon" name="TLE986x_DFP" version="1.4.2" />
+    <pdsc url="https://www.infineon.com/cmsis_packs/TLE986x/" vendor="Infineon" name="TLE986x_DFP" version="1.4.4" />
     <pdsc url="https://www.infineon.com/cmsis_packs/TLE987x/" vendor="Infineon" name="TLE987x_DFP" version="1.4.4" />
     <pdsc url="https://www.infineon.com/cmsis_packs/IMM100A/" vendor="Infineon" name="IMM100A_DFP" version="1.0.0" />
   </pindex>
