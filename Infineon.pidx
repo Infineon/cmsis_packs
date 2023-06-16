@@ -10,6 +10,7 @@
     <pdsc url="https://www.infineon.com/cmsis_packs/TLE985x/" vendor="Infineon" name="TLE985x_DFP" version="1.1.8" />
     <pdsc url="https://itools.infineon.com/cmsis_packs/TLE986x/" vendor="Infineon" name="TLE986x_DFP" version="1.4.6" />
     <pdsc url="https://itools.infineon.com/cmsis_packs/TLE987x/" vendor="Infineon" name="TLE987x_DFP" version="1.6.0" />
+    <pdsc url="https://itools.infineon.com/cmsis_packs/TLE988x_9x/" vendor="Infineon" name="TLE988x_9x_DFP" version="1.0.0" />
     <pdsc url="https://itools.infineon.com/cmsis_packs/IMM100A/" vendor="Infineon" name="IMM100A_DFP" version="1.0.1" />
     <pdsc url="https://itools.infineon.com/cmsis_packs/IMC300A/" vendor="Infineon" name="IMC300A_DFP" version="1.1.0" />
   </pindex>
