@@ -2,7 +2,7 @@
 <index schemaVersion="1.1.0" xs:noNamespaceSchemaLocation="PackIndex.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
   <vendor>Infineon</vendor>
   <url>https://github.com/Infineon/cmsis_packs/raw/master/</url>
-  <timestamp>2024-06-25T15:06:00.5676577+00:00</timestamp>
+  <timestamp>2024-08-28T08:12:36.715Z.1724832756</timestamp>
   <pindex>
     <pdsc url="https://www.infineon.com/cmsis_packs/XMC1000/" vendor="Infineon" name="XMC1000_DFP" version="2.12.0" />
     <pdsc url="https://www.infineon.com/cmsis_packs/XMC4000/" vendor="Infineon" name="XMC4000_DFP" version="2.14.0" />
@@ -12,6 +12,6 @@
     <pdsc url="https://itools.infineon.com/cmsis_packs/TLE987x/" vendor="Infineon" name="TLE987x_DFP" version="1.6.0" />
     <pdsc url="https://itools.infineon.com/cmsis_packs/TLE988x_9x/" vendor="Infineon" name="TLE988x_9x_DFP" version="1.2.0" />
     <pdsc url="https://itools.infineon.com/cmsis_packs/IMM100A/" vendor="Infineon" name="IMM100A_DFP" version="1.0.1" />
-    <pdsc url="https://itools.infineon.com/cmsis_packs/IMC300A/" vendor="Infineon" name="IMC300A_DFP" version="1.1.0" />
+    <pdsc url="https://itools.infineon.com/cmsis_packs/IMC300A/" vendor="Infineon" name="IMC300A_DFP" version="2.0.3" />
   </pindex>
 </index>
