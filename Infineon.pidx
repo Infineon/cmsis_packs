@@ -2,7 +2,7 @@
 <index schemaVersion="1.1.0" xs:noNamespaceSchemaLocation="PackIndex.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
   <vendor>Infineon</vendor>
   <url>https://github.com/Infineon/cmsis_packs/raw/master/</url>
-  <timestamp>2024-06-25T15:06:00.5676577+00:00</timestamp>
+  <timestamp>2024-09-24T10:01:00.5676577+00:00</timestamp>
   <pindex>
     <pdsc url="https://www.infineon.com/cmsis_packs/XMC1000/" vendor="Infineon" name="XMC1000_DFP" version="2.12.0" />
     <pdsc url="https://www.infineon.com/cmsis_packs/XMC4000/" vendor="Infineon" name="XMC4000_DFP" version="2.14.0" />
